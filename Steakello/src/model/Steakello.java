@@ -2,6 +2,7 @@ package model;
 
 import controller.GameController;
 import view.GameViewConsole;
+import view.GameViewGUI;
 
 public class Steakello {
 
@@ -10,12 +11,16 @@ public class Steakello {
 		GameCore gameCore = new GameCore();
 		
 		GameController consoleController = new GameController(gameCore);
+		GameController GUIController = new GameController(gameCore);
 		
 		GameViewConsole gameViewConsole = new GameViewConsole(gameCore, consoleController);
+		GameViewGUI gameViewGUI = new GameViewGUI(gameCore, consoleController);
 		
 		consoleController.addView(gameViewConsole);
+		GUIController.addView(gameViewGUI);
 		
 		gameViewConsole.displayMenu();
+		gameViewGUI.displayMenu();
 		
 	}
 

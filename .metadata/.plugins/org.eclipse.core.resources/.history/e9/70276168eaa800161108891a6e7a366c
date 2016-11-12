@@ -1,0 +1,77 @@
+package view;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.util.Observable;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import controller.GameController;
+import model.GameCore;
+
+public class GameViewGUI extends GameView {
+	private int windowWidth = 800;
+	private int windowHeight = 600;
+	private JPanel jPan;
+	private Menu menu;
+	private JFrame window;
+	
+	
+	
+	public GameViewGUI(GameCore gameCore, GameController controller) {
+		super(gameCore, controller);
+		window = new JFrame();
+		jPan = new Panel();
+		menu = new Menu(windowWidth, windowHeight);
+		window.setSize(windowWidth, windowHeight);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setTitle("Steakello");
+		window.setResizable(false);
+		window.setLocationRelativeTo(null);
+		window.setVisible(true);
+		window.add(jPan);
+
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		
+		jPan.repaint();
+	}
+
+	@Override
+	public void displayMenu() {
+		
+		
+	}
+
+	@Override
+	public void displayGame() {
+		// TODO Auto-generated method stub
+		
+	}
+	class Panel extends JPanel{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		public Panel(){
+			super.setPreferredSize(new Dimension(windowWidth,windowHeight));
+			
+		}
+
+	    @Override
+	    public void paintComponent(Graphics g) {
+	    	if(gameCore.getGameMode() == 0){
+
+	    		menu.drawMenu(g, (Panel) jPan);
+	    	}
+
+	    	super.add(new JButton("hi"));
+	    }
+		
+	}
+}

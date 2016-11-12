@@ -46,10 +46,7 @@ public class GameBoard {
 		chipArray[x][y].setPlayer(player);;
 	}
 	public void switchPlayer() {
-		if(player == 0){
-			player = 1;
-		}
-		else if(player == 1){
+		if(player == 1){
 			player = 2;
 		}
 		else if(player == 2){
@@ -88,13 +85,19 @@ public class GameBoard {
 		return score;
 	}
 	public void setCoords(int input) {
-		if(x == -1){
+		if(isFull()){
+			if(score()[0] > score()[1]){
+				System.out.println("Player 1 wins");
+			}else{
+				System.out.println("Player 2 wins");
+			}
+		}
+		else if(x == -1){
 			x = input;
 		}
 		else if(x != -1 && y == -1){
 			y = input;
-			if(chipPlacer.checkPlacementValidity(chipArray, x, y, player)){
-				chipPlacer.placeChip(chipArray, size, x, y, player);
+			if(chipPlacer.placeChip(chipArray, size, x, y, player)){
 				switchPlayer();
 			}
 
