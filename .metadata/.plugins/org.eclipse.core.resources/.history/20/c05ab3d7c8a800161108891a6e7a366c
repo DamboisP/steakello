@@ -1,0 +1,21 @@
+package view;
+
+import model.GameBoard;
+import util.Observer;
+
+public class View implements Observer{
+
+	@Override
+	public void update(int gameMode, GameBoard gameBoard) {
+		if(gameMode == 0){
+			drawMenu();
+		}
+		
+	}
+
+	private void drawMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

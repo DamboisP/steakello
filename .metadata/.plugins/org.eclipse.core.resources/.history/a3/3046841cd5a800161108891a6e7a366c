@@ -1,0 +1,10 @@
+package controller;
+
+public class GameController {
+
+	public void setInput(int input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+package util;
+
+import java.util.EventObject;
+
+import model.GameBoard;
+
+public class GameStateChangedEvent extends EventObject{
+
+	private GameBoard gameBoard;
+	
+	public GameStateChangedEvent(Object obj, GameBoard gameBoard) {
+		super(obj);
+		this.gameBoard = gameBoard;
+	}
+
+}

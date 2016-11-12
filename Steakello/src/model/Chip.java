@@ -1,0 +1,45 @@
+package model;
+
+public class Chip {
+	
+	private boolean set;
+	private int player;
+	
+	/**
+	 * La pièce n'est pas placée par défaut
+	 */
+	public Chip(){
+		this.set = false;
+	}
+	
+	/**
+	 * Retourne la représentation graphique de la pièce
+	 */
+	public String toString(){
+		if(set && player == 1){
+			return "[x]";
+		}
+		else if(set && player == 2){
+			return "[o]";
+		}
+		return "[ ]";
+	}
+
+	public boolean isSet() {
+		return set;
+	}
+
+	public void setSet(boolean set) {
+		this.set = set;
+	}
+
+	public int getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(int player) {
+		this.player = player;
+	}
+	
+	
+}
