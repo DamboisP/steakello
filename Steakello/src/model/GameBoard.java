@@ -1,5 +1,9 @@
 package model;
-
+/** 
+ * 
+ * @author test
+ *
+ */
 public class GameBoard {
 	private int size = 8;
 	private Chip[][] chipArray;
@@ -22,29 +26,60 @@ public class GameBoard {
 		x = -1;
 		y = -1;
 	}
+	/**
+	 * @param
+	 * @return
+	 */
 	public Chip[][] getChipArray() {
 		return chipArray;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public void setChipArray(Chip[][] chipArray) {
 		this.chipArray = chipArray;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public int getPlayer() {
 		return player;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public void setPlayer(int player) {
 		this.player = player;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getSize() {
 		return size;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public void setSize(int size) {
 		this.size = size;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public void addChip(int x, int y, int player){
 		chipArray[x][y].setSet(true);
 		chipArray[x][y].setPlayer(player);;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public void switchPlayer() {
 		if(player == 1){
 			player = 2;
@@ -54,6 +89,10 @@ public class GameBoard {
 		}
 		
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean isFull() {
 		int chips = 0;
 		for(int i = 0; i < chipArray.length; i++){
@@ -69,7 +108,10 @@ public class GameBoard {
 	
 	return false;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public int[] score() {
 		int[] score = new int[2];
 		for(int i = 0; i < chipArray.length; i++){
@@ -84,6 +126,10 @@ public class GameBoard {
 		}
 		return score;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public void setCoords(int input) {
 		if(isFull()){
 			if(score()[0] > score()[1]){
@@ -105,6 +151,10 @@ public class GameBoard {
 			y = -1;
 		}
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public int getX() {
 		return x;
 	}
