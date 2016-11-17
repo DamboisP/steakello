@@ -15,7 +15,17 @@ public class GameBoardTest {
 	public final void testSetChipArray() {
 		fail("Not yet implemented");
 	}
-	
+
+	@Test
+	public final void testSetPlayer() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public final void testSetSize() {
+		fail("Not yet implemented");
+	}
+
 	@Test
 	public final void testAddChip() {
 		fail("Not yet implemented");

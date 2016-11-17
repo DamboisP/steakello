@@ -12,10 +12,35 @@ public class GameBoardTest {
 	}
 
 	@Test
+	public final void testGetChipArray() {
+		fail("Not yet implemented");
+	}
+
+	@Test
 	public final void testSetChipArray() {
 		fail("Not yet implemented");
 	}
-	
+
+	@Test
+	public final void testGetPlayer() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public final void testSetPlayer() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public final void testGetSize() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public final void testSetSize() {
+		fail("Not yet implemented");
+	}
+
 	@Test
 	public final void testAddChip() {
 		fail("Not yet implemented");
@@ -40,4 +65,10 @@ public class GameBoardTest {
 	public final void testSetCoords() {
 		fail("Not yet implemented");
 	}
+
+	@Test
+	public final void testGetX() {
+		fail("Not yet implemented");
+	}
+
 }
