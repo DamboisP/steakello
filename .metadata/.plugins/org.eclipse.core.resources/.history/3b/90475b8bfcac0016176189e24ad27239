@@ -3,7 +3,7 @@ package model;
 /**
  * 
  * @author steff
- * Groupe 8
+ *
  */
 
 public class Chip {

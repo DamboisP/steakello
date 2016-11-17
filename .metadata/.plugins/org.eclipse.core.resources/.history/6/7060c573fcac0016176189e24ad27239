@@ -1,8 +1,7 @@
 package model;
 
 /**
- * @author 
- * Groupe 8
+ * 
  */
 
 import java.util.Observable;

@@ -8,7 +8,6 @@ import model.Chip;
  * @author Steffi Baugnies
  * Groupe 8
  */
-
 public class ChipPlacer {
 	
 	private int chipsToFlip[][] = new int[8][8];

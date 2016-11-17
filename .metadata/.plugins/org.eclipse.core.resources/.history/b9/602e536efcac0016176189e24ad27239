@@ -1,10 +1,5 @@
 package model;
 
-/**
- * @author
- * Groupe 8
- */
-
 import controller.GameController;
 import view.GameViewConsole;
 import view.GameViewGUI;

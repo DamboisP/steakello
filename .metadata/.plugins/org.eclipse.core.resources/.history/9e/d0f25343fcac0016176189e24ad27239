@@ -1,10 +1,5 @@
 package model;
 
-/**
- * @author 
- * Groupe 8
- */
-
 import java.util.Observable;
 
 public class GameCore extends Observable{
@@ -35,11 +30,7 @@ public class GameCore extends Observable{
 	public void setGameMode(int gameMode) {
 		this.gameMode = gameMode;
 	}
-	
-	/**
-	 * Méthode userInput 
-	 * @param input
-	 */
+
 	public void userInput(int input) {
 		if(gameMode == 0){
 			gameMode = input;
