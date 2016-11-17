@@ -1,7 +1,7 @@
 package model;
 /** 
  * 
- * @author he201287
+ * @author test
  *
  */
 public class GameBoard {
@@ -81,7 +81,7 @@ public class GameBoard {
 	}
 	/**
 	 * Méthode switchPlayer 
-	 * Donne la main au joueur adverse quand le tour se termine
+	 *
 	 */
 	public void switchPlayer() {
 		if(player == 1){

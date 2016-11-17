@@ -1,7 +1,7 @@
 package model;
 /** 
  * 
- * @author he201287
+ * @author test
  *
  */
 public class GameBoard {
@@ -27,8 +27,8 @@ public class GameBoard {
 		y = -1;
 	}
 	/**
-	 * Méthode getChipArray ramène les données de l'Array chipArray
-	 * @return un array en 2 dimensions nommé chipArray contenant n steaks
+	 * Méthode getChipArray
+	 * @return un array en 2 dimensions nommé chipArray contenant les steaks
 	 */
 	public Chip[][] getChipArray() {
 		return chipArray;
@@ -36,52 +36,50 @@ public class GameBoard {
 	/**
 	 * Méthode setChipArray
 	 * @param Chip[][] chipArray un array en deux dimensions
-	 * place l'Array ChipArray
+	 * @return
 	 */
 	public void setChipArray(Chip[][] chipArray) {
 		this.chipArray = chipArray;
 	}
 	/**
-	 * Méthode getPlayer ramène le numéros de player
-	 * @return le numéros de player
+	 * 
+	 * @return
 	 */
 	public int getPlayer() {
 		return player;
 	}
 	/**
-	 * Méthode setPlayer
-	 * attribue un numéros à la variable player
+	 * 
+	 * @return
 	 */
 	public void setPlayer(int player) {
 		this.player = player;
 	}
 	/**
-	 * Méthode getSize
-	 * @return la taille size de l'array
+	 * 
+	 * @return
 	 */
 	public int getSize() {
 		return size;
 	}
 	/**
-	 * Méthode setSize
-	 * attribue une taille à la variable size
+	 * 
+	 * @return
 	 */
 	public void setSize(int size) {
 		this.size = size;
 	}
 	/**
-	 * Méthode addChip ajoute une pièce 
-	 * dans l'Array chipArray
-	 * Vérifie si la position dans l'array chipArray est libre
-	 * Attribue cette position au joueur dont le tour est en cours.
+	 * 
+	 * @return
 	 */
 	public void addChip(int x, int y, int player){
 		chipArray[x][y].setSet(true);
 		chipArray[x][y].setPlayer(player);;
 	}
 	/**
-	 * Méthode switchPlayer 
-	 * Donne la main au joueur adverse quand le tour se termine
+	 * 
+	 * @return
 	 */
 	public void switchPlayer() {
 		if(player == 1){
@@ -93,11 +91,8 @@ public class GameBoard {
 		
 	}
 	/**
-	 * Méthode isFull vérifie
-	 * si l'array chipArray est plein
-	 * @return true si oui 
-	 * sinon 
-	 * @return false
+	 * 
+	 * @return
 	 */
 	public boolean isFull() {
 		int chips = 0;
@@ -115,8 +110,8 @@ public class GameBoard {
 	return false;
 	}
 	/**
-	 * Méthode score
-	 * @return le score de chaque joueur
+	 * 
+	 * @return
 	 */
 	public int[] score() {
 		int[] score = new int[2];
@@ -133,9 +128,8 @@ public class GameBoard {
 		return score;
 	}
 	/**
-	 * Méthode setCoords
-	 * Attribue la coordonnée à la pièce du joueur dont le tours est en cours
-	 * Donne la main à l'autre joueur quand le tour se termine
+	 * 
+	 * @return
 	 */
 	public void setCoords(int input) {
 		if(isFull()){
@@ -158,9 +152,9 @@ public class GameBoard {
 			y = -1;
 		}
 	}
-	/** 
-	 * Méthode getX
-	 * @return la valeur de x
+	/**
+	 * 
+	 * @return
 	 */
 	public int getX() {
 		return x;
