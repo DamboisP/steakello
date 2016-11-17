@@ -25,7 +25,6 @@ public class ChipPlacer {
 	/**
 	 * Vérifie si il y a au moins un jeton autour de la position
 	 * pour éviter qu'un joueur en place un au milieu de nulle part.
-	 * 
 	 * @param chipArray Tableau de jetons du plateau de jeu
 	 * @param boardSize Taille du plateau de jeu
 	 * @param x Position X du jeton pour lequel on vérifie si elle est valide
