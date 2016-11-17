@@ -5,8 +5,8 @@ import model.Chip;
 
 /** 
  * 
- * @author Steffi Baugnies
- * Groupe 8
+ * @author Pierre
+ *
  */
 public class ChipPlacer {
 	
@@ -15,11 +15,11 @@ public class ChipPlacer {
 	/**
 	 * Méthode placeChip place le jeton du joueur
 	 * si le placement choisi est legal/valide.
-	 * @param chipArray : un tableau de jetons du plateau de jeu
-	 * @param boardSize : la taille du plateau de jeu
-	 * @param x : la position X du jeton à placer		
-	 * @param y : la position Y du jeton à placer
-	 * @param player : le joueur dont c'est actuellement le tour
+	 * @param chipArray est un tableau de jetons du plateau de jeu
+	 * @param boardSize est la taille du plateau de jeu
+	 * @param x est la position X du jeton à placer		
+	 * @param y est la position Y du jeton à placer
+	 * @param player est le joueur dont c'est actuellement le tour
 	 * @return true si le placement est accepté, qu'il fait retourner des jetons
 	 * false si le placement est refusé
 	 */
@@ -36,11 +36,11 @@ public class ChipPlacer {
 	/**
 	 * Méthode checkPlacementValidity vérifie s'il y a un jeton autour de la position choisie
 	 * par le joueur pour éviter un placement au milieu de nulle part.
-	 * @param chipArray : un tableau de jetons du plateau de jeu
+	 * @param chipArray est un tableau de jetons du plateau de jeu
 	 * @param boardSize est la taille du plateau de jeu
-	 * @param x : la position X du jeton dont on vérifie la validité
-	 * @param y : la position Y du jeton dont on vérifie la validité
-	 * @param player : le joueur dont qui tente de placer le jeton
+	 * @param x est la position X du jeton dont on vérifie la validité
+	 * @param y est la position Y du jeton dont on vérifie la validité
+	 * @param player est le joueur dont qui tente de placer le jeton
 	 * @return true si le jeton que le joueur essaye de placer est autour d'un (ou plusieurs) jetons du joueur adverse
 	 * false si il n'y a aucuns jetons du joueur adverse autour de la position choisie
 	 */
@@ -74,10 +74,10 @@ public class ChipPlacer {
 	 * Méthode checkForChipToFlip vérifie, dans chaque direction,
 	 * s'il est possible de prendre/retourner certains jetons 
 	 * appartenant à (de la couleur de) l'adversaire. 
-	 * @param chipArray : un tableau de jetons du plateau de jeu
-	 * @param x : la position X du jeton que le joueur veut placer
-	 * @param y : la position Y du jeton que le joueur veut placer 
-	 * @param player : le joueur dont c'est actuellement le tour
+	 * @param chipArray est un tableau de jetons du plateau de jeu
+	 * @param x est la position X du jeton que le joueur veut placer
+	 * @param y est la position Y du jeton que le joueur veut placer 
+	 * @param player est le joueur dont c'est actuellement le tour
 	 * @return true si il y a au moins un jeton adversaire à retourner
 	 * false s'il n'y en a pas
 	 */
@@ -246,8 +246,8 @@ public class ChipPlacer {
 	 * Méthode fillGameBoard retourne les jetons de l'adversaire
 	 * sur base de la variable tampon
 	 * qui a été remplie au péalable.
-	 * @param chipArray : le tableau de jetons du plateau de jeu
-	 * @param player : le joueur qui vient de jouer
+	 * @param chipArray est le tableau de jetons du plateau de jeu
+	 * @param player est le joueur qui vient de jouer
 	 */
 	private void fillGameBoard(Chip[][] chipArray, int player){
 		for(int i = 0; i < chipsToFlip.length; i++){

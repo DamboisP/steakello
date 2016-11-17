@@ -6,15 +6,13 @@ public class Chip {
 	private int player;
 	
 	/**
-	 * Méthode Chip pour que le jeton ne soit pas 
-	 * initialisé/placée par défaut 
+	 * La pièce n'est pas placée par défaut
 	 */
 	public Chip(){
 		this.set = false;
 	}
 	
 	/**
-	 * Méthode toString
 	 * Retourne la représentation graphique de la pièce
 	 */
 	public String toString(){

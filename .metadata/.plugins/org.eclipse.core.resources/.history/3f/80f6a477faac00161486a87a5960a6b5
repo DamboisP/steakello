@@ -7,10 +7,6 @@ public class GameCore extends Observable{
 	private GameBoard gameBoard;
 	private int gameMode = 0;
 
-	/**
-	 * Méthode getGameBoard
-	 * @return le plateau de jeu
-	 */
 	public GameBoard getGameBoard() {
 		return gameBoard;
 	}
@@ -19,10 +15,6 @@ public class GameCore extends Observable{
 		this.gameBoard = gameBoard;
 	}
 
-	/**
-	 * Méthode getGameMode
-	 * @return le mode de jeu sélectionné
-	 */
 	public int getGameMode() {
 		return gameMode;
 	}
