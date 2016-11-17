@@ -1,7 +1,7 @@
 package model;
 /** 
  * 
- * @author he201287
+ * @author Bonhomme Jean-Baptiste 2Tl1 groupe8
  *
  */
 public class GameBoard {
@@ -11,6 +11,11 @@ public class GameBoard {
 	private int x;
 	private int y;
 	private ChipPlacer chipPlacer = new ChipPlacer();
+	
+	/**
+	 * Méthode GameBoard initialise le plateau de jeux
+	 * et place les 4 premieres pièces
+	 */
 	public GameBoard(){
 		chipArray = new Chip[size][size];
 		for(int i = 0; i < chipArray.length; i++){
@@ -26,6 +31,7 @@ public class GameBoard {
 		x = -1;
 		y = -1;
 	}
+	
 	/**
 	 * Méthode getChipArray ramène les données de l'Array chipArray
 	 * @return un array en 2 dimensions nommé chipArray contenant n steaks
@@ -33,6 +39,7 @@ public class GameBoard {
 	public Chip[][] getChipArray() {
 		return chipArray;
 	}
+	
 	/**
 	 * Méthode setChipArray
 	 * @param Chip[][] chipArray un array en deux dimensions
@@ -41,6 +48,7 @@ public class GameBoard {
 	public void setChipArray(Chip[][] chipArray) {
 		this.chipArray = chipArray;
 	}
+	
 	/**
 	 * Méthode getPlayer ramène le numéros de player
 	 * @return le numéros de player
@@ -48,6 +56,7 @@ public class GameBoard {
 	public int getPlayer() {
 		return player;
 	}
+	
 	/**
 	 * Méthode setPlayer
 	 * attribue un numéros à la variable player
@@ -55,6 +64,7 @@ public class GameBoard {
 	public void setPlayer(int player) {
 		this.player = player;
 	}
+	
 	/**
 	 * Méthode getSize
 	 * @return la taille size de l'array
@@ -62,6 +72,7 @@ public class GameBoard {
 	public int getSize() {
 		return size;
 	}
+	
 	/**
 	 * Méthode setSize
 	 * attribue une taille à la variable size
@@ -69,6 +80,7 @@ public class GameBoard {
 	public void setSize(int size) {
 		this.size = size;
 	}
+	
 	/**
 	 * Méthode addChip ajoute une pièce 
 	 * dans l'Array chipArray
@@ -79,6 +91,7 @@ public class GameBoard {
 		chipArray[x][y].setSet(true);
 		chipArray[x][y].setPlayer(player);;
 	}
+	
 	/**
 	 * Méthode switchPlayer 
 	 * Donne la main au joueur adverse quand le tour se termine
@@ -92,6 +105,7 @@ public class GameBoard {
 		}
 		
 	}
+	
 	/**
 	 * Méthode isFull vérifie
 	 * si l'array chipArray est plein
@@ -114,6 +128,7 @@ public class GameBoard {
 	
 	return false;
 	}
+	
 	/**
 	 * Méthode score
 	 * @return le score de chaque joueur
@@ -132,9 +147,10 @@ public class GameBoard {
 		}
 		return score;
 	}
+	
 	/**
 	 * Méthode setCoords
-	 * Attribue la coordonnée à la pièce du joueur dont le tours est en cours
+	 * Attribue la coordonnée à la pièce du joueur dont le tour est en cours
 	 * Donne la main à l'autre joueur quand le tour se termine
 	 */
 	public void setCoords(int input) {
@@ -158,6 +174,7 @@ public class GameBoard {
 			y = -1;
 		}
 	}
+	
 	/** 
 	 * Méthode getX
 	 * @return la valeur de x
