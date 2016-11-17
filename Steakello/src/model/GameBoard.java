@@ -1,9 +1,11 @@
 package model;
+
 /** 
  * 
  * @author Bonhomme Jean-Baptiste 2Tl1 groupe8
  *
  */
+
 public class GameBoard {
 	private int size = 8;
 	private Chip[][] chipArray;

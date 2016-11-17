@@ -12,6 +12,17 @@ public class ChipPlacer {
 	
 	private int chipsToFlip[][] = new int[8][8];
 
+	/**
+	 * Méthode placeChip place le jeton du joueur
+	 * si le placement choisi est legal/valide.
+	 * @param chipArray est un tableau de jetons du plateau de jeu
+	 * @param boardSize est la taille du plateau de jeu
+	 * @param x est la position X du jeton à placer		
+	 * @param y est la position Y du jeton à placer
+	 * @param player est le joueur dont c'est actuellement le tour
+	 * @return true si le placement est accepté, qu'il fait retourner des jetons
+	 * false si le placement est refusé
+	 */
 	public boolean placeChip(Chip[][] chipArray,int boardSize, int x, int y, int player){
 		if(checkPlacementValidity(chipArray, x, y, player)){
 			if(checkForChipToFlip(chipArray, x, y, player)){
@@ -23,15 +34,15 @@ public class ChipPlacer {
 		return false;
 	}
 	/**
-	 * Vérifie si il y a au moins un jeton autour de la position
-	 * pour éviter qu'un joueur en place un au milieu de nulle part.
-	 * 
-	 * @param chipArray Tableau de jetons du plateau de jeu
-	 * @param boardSize Taille du plateau de jeu
-	 * @param x Position X du jeton pour lequel on vérifie si elle est valide
-	 * @param y Position Y du jeton pour lequel on vérifie si elle est valide
-	 * @param player 
-	 * @return
+	 * Méthode checkPlacementValidity vérifie s'il y a un jeton autour de la position choisie
+	 * par le joueur pour éviter un placement au milieu de nulle part.
+	 * @param chipArray est un tableau de jetons du plateau de jeu
+	 * @param boardSize est la taille du plateau de jeu
+	 * @param x est la position X du jeton dont on vérifie la validité
+	 * @param y est la position Y du jeton dont on vérifie la validité
+	 * @param player est le joueur dont qui tente de placer le jeton
+	 * @return true si le jeton que le joueur essaye de placer est autour d'un (ou plusieurs) jetons du joueur adverse
+	 * false si il n'y a aucuns jetons du joueur adverse autour de la position choisie
 	 */
 	public boolean checkPlacementValidity(Chip[][] chipArray, int x, int y, int player){
 
@@ -60,13 +71,15 @@ public class ChipPlacer {
 	
 	
 	/**
-	 * Permet de vérifier dans chaque direction s'il est possible de
-	 * prendre des jetons à l'adversaire.
-	 * @param chipArray Tableau de jetons du plateau de jeu
-	 * @param x Position X du jeton placé
-	 * @param y Position Y du jeton plaé	 
-	 * @param player Joueur qui a jouÃ©Â Â¬e coup
-	 * @return Si il est possible de prendre au moins un jeton à l'adversaire
+	 * Méthode checkForChipToFlip vérifie, dans chaque direction,
+	 * s'il est possible de prendre/retourner certains jetons 
+	 * appartenant à (de la couleur de) l'adversaire. 
+	 * @param chipArray est un tableau de jetons du plateau de jeu
+	 * @param x est la position X du jeton que le joueur veut placer
+	 * @param y est la position Y du jeton que le joueur veut placer 
+	 * @param player est le joueur dont c'est actuellement le tour
+	 * @return true si il y a au moins un jeton adversaire à retourner
+	 * false s'il n'y en a pas
 	 */
 	public boolean checkForChipToFlip(Chip[][] chipArray, int x, int y, int player){
 		resetChipsToFlip();
@@ -230,11 +243,12 @@ public class ChipPlacer {
 	
 	
 	/**
-	 * Sert à retourner les jetons du plateau sur base de la 
-	 * variable tampons qui a été remplit au péalable.
-	 * 
-	 * @param chipArray Tableau de jetons du plateau de jeu
-	 * @param player Joueur ayant joué 	 */
+	 * Méthode fillGameBoard retourne les jetons de l'adversaire
+	 * sur base de la variable tampon
+	 * qui a été remplie au péalable.
+	 * @param chipArray est le tableau de jetons du plateau de jeu
+	 * @param player est le joueur qui vient de jouer
+	 * */
 	private void fillGameBoard(Chip[][] chipArray, int player){
 		for(int i = 0; i < chipsToFlip.length; i++){
 			for(int j = 0; j < chipsToFlip.length; j++){
@@ -247,7 +261,8 @@ public class ChipPlacer {
 	}
 	
 	/**
-	 * Rétablit la variable tampons des jetons à retourner.
+	 * Méthode resetChipstoFlip 
+	 * Rétablit la variable tampon des jetons à retourner.
 	 */
 	private void resetChipsToFlip(){
 		for(int i = 0; i < chipsToFlip.length; i++){
