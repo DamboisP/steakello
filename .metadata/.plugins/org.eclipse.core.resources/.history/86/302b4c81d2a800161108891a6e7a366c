@@ -1,0 +1,31 @@
+package view;
+
+import model.GameBoard;
+import model.GameCore;
+import util.Observer;
+
+public class GameView implements Observer{
+
+	private GameController controller;
+	private GameCore gameCore;
+
+	public GameView(GameCore gameCore, GameController controller){
+		this.gameCore = gameCore;
+		this.controller = controller;
+	}
+	@Override
+	public void update(int gameMode, GameBoard gameBoard) {
+		if(gameMode == 0){
+			drawMenu();
+		}
+		
+	}
+
+	private void drawMenu() {
+		System.out.println("Choississez un mode de jeu");
+		System.out.println("1 - 2 joueurs local");
+		System.out.println("2 - 2 joueurs en ligne");
+		
+	}
+
+}

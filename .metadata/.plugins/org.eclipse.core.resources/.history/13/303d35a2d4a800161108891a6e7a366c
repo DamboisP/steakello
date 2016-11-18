@@ -1,0 +1,48 @@
+package view;
+
+import java.util.Observable;
+import java.util.Scanner;
+
+import controller.GameController;
+import model.GameCore;
+
+public class GameViewConsole extends GameView{
+
+	GameViewConsole(GameCore gameCore, GameController controller) {
+		super(gameCore, controller);
+		Scanner scanner = new Scanner(System.in);
+		new Thread (new)
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		if(gameCore.getGameMode() == 0){
+			displayMenu();
+		}
+		
+	}
+
+	@Override
+	public void displayMenu() {
+		System.out.println("Choississez un mode de jeu");
+		System.out.println("1 - 2 joueurs local");
+		System.out.println("2 - 2 joueurs en ligne");
+		
+	}
+
+	@Override
+	public void displayGame() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	private class InputReader implements Runnable{
+        public void run() {
+            while(true){
+                int input = sc.nextInt();
+                controller.setInput(input);
+            }
+        }
+    }
+
+}
