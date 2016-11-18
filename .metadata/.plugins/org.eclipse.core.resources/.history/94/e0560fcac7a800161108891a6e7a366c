@@ -1,0 +1,21 @@
+package model;
+
+import util.Observable;
+import util.Observer;
+
+public class GameCore implements Observable{
+	private Observer gameObserver;
+	
+	@Override
+	public void notifyView(int gameMode, GameBoard gameBoard) {
+		t
+		
+	}
+
+	@Override
+	public void addObserver(Observer obs) {
+		this.gameObserver = obs;
+		
+	}
+	
+}

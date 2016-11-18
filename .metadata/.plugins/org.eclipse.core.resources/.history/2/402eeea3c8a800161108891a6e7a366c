@@ -1,0 +1,14 @@
+package view;
+
+import model.GameBoard;
+import util.Observer;
+
+public class View implements Observer{
+
+	@Override
+	public void update(int gameMode, GameBoard gameBoard) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

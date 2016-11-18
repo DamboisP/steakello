@@ -1,0 +1,21 @@
+package model;
+
+import controller.GameController;
+import view.GameViewConsole;
+
+public class Steakello {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		GameCore gameCore = new GameCore();
+		gameCore.init();
+		
+		GameController consoleController = new GameController(gameCore);
+		
+		GameViewConsole gameViewConsole = new GameViewConsole(gameCore, consoleController);
+		
+		consoleController.addView(gameViewConsole);
+		
+	}
+
+}
