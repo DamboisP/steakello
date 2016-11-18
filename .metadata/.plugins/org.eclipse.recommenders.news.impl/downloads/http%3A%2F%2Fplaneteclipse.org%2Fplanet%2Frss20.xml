@@ -8,6 +8,190 @@
 	<description>Planet Eclipse - http://planeteclipse.org/planet/</description>
 
 <item>
+	<title>JBoss Tools Team: Production BRMS and Fuse Tooling for Neon</title>
+	<guid isPermaLink="true">http://tools.jboss.org/blog/integration-stack-4.4.0.Final.html</guid>
+	<link>http://tools.jboss.org/blog/integration-stack-4.4.0.Final.html</link>
+	<description>&lt;div&gt;&lt;div id=&quot;preamble&quot;&gt;
+      &lt;div class=&quot;sectionbody&quot;&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;&lt;strong&gt;Try our complete Eclipse-Neon capable, Devstudio 10.1.0 compatible integration tooling.&lt;/strong&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;imageblock&quot;&gt;
+      &lt;div class=&quot;content&quot;&gt;
+      &lt;img alt=&quot;jbosstools jbdevstudio blog header&quot; src=&quot;http://tools.jboss.org/blog/images/jbosstools-jbdevstudio-blog-header.png&quot; /&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;&lt;strong&gt;JBoss Tools Integration Stack 4.4.0.Final / JBoss Developer Studio Integration Stack 10.0.0.GA&lt;/strong&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;admonitionblock note&quot;&gt;
+      &lt;table&gt;
+      &lt;tbody&gt;&lt;tr&gt;
+      &lt;td class=&quot;icon&quot;&gt;
+      &lt;i class=&quot;fa icon-note&quot; title=&quot;Note&quot;&gt;&lt;/i&gt;
+      &lt;/td&gt;
+      &lt;td class=&quot;content&quot;&gt;
+      All of the Integratioon Stack components have been verified to work with the same dependencies as JBoss Tools 4.4 and Developer Studio 10.
+      &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect1&quot;&gt;
+      &lt;h2 id=&quot;what-s-new-for-this-release&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#what-s-new-for-this-release&quot;&gt;&lt;/a&gt;What’s new for this release?&lt;/h2&gt;
+      &lt;div class=&quot;sectionbody&quot;&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;Fuse Tooling/SwitchYard and BRMS Tooling are released for the Eclipse/Neon platform (&lt;a href=&quot;http://localhost:4242/downloads/devstudio/neon/10.1.0.GA.html#central&quot;&gt;Devstudio 10.1.0&lt;/a&gt;).  The latest &lt;a href=&quot;http://access.redhat.com/documentation/en/red-hat-jboss-fuse/6.3/&quot;&gt;Fuse runtime&lt;/a&gt; and &lt;a href=&quot;http://developers.redhat.com/products/brms/download/&quot;&gt;BRMS runtime&lt;/a&gt; are supported.  Also - we’re happy to offer the latest Mars-based DataVirtualization bits as Early Access on our Neon platform.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect2&quot;&gt;
+      &lt;h3 id=&quot;released-tooling-highlights&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#released-tooling-highlights&quot;&gt;&lt;/a&gt;Released Tooling Highlights&lt;/h3&gt;
+      &lt;div class=&quot;sect3&quot;&gt;
+      &lt;h4 id=&quot;jboss-fuse-development-highlights&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#jboss-fuse-development-highlights&quot;&gt;&lt;/a&gt;JBoss Fuse Development Highlights&lt;/h4&gt;
+      &lt;div class=&quot;sect4&quot;&gt;
+      &lt;h5 id=&quot;fuse-tooling-highlights&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#fuse-tooling-highlights&quot;&gt;&lt;/a&gt;Fuse Tooling Highlights&lt;/h5&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;See the &lt;a href=&quot;https://access.redhat.com/documentation/en/red-hat-jboss-developer-studio-integration-stack/10.0/paged/1000ga-release-notes-and-known-issues/chapter-4-resolved-issues&quot;&gt;Fuse Tooling 9.0.0.Final Resolved Issues Section&lt;/a&gt; of the Integration Stack 10.0.0.GA release notes.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect4&quot;&gt;
+      &lt;h5 id=&quot;switchyard-highlights&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#switchyard-highlights&quot;&gt;&lt;/a&gt;SwitchYard Highlights&lt;/h5&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;See the &lt;a href=&quot;https://access.redhat.com/documentation/en/red-hat-jboss-developer-studio-integration-stack/10.0/paged/1000ga-release-notes-and-known-issues/chapter-4-resolved-issues&quot;&gt;SwitchYard 2.2.0.Final Resolved Issues Section&lt;/a&gt; of the Integration Stack 10.0.0.GA release notes.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect3&quot;&gt;
+      &lt;h4 id=&quot;jboss-business-process-and-rules-development&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#jboss-business-process-and-rules-development&quot;&gt;&lt;/a&gt;JBoss Business Process and Rules Development&lt;/h4&gt;
+      &lt;div class=&quot;sect4&quot;&gt;
+      &lt;h5 id=&quot;bpmn2-modeler-highlights&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#bpmn2-modeler-highlights&quot;&gt;&lt;/a&gt;BPMN2 Modeler Highlights&lt;/h5&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;See the &lt;a href=&quot;https://access.redhat.com/documentation/en/red-hat-jboss-developer-studio-integration-stack/10.0/paged/1000ga-release-notes-and-known-issues/chapter-4-resolved-issues&quot;&gt;BPMN2 1.3.2.Final Resolved Issues Section&lt;/a&gt; of the Integration Stack 10.0.0.GA release notes.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect4&quot;&gt;
+      &lt;h5 id=&quot;drools-jbpm6-highlights&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#drools-jbpm6-highlights&quot;&gt;&lt;/a&gt;Drools/jBPM6 Highlights&lt;/h5&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;See the &lt;a href=&quot;https://access.redhat.com/documentation/en/red-hat-jboss-developer-studio-integration-stack/10.0/paged/1000ga-release-notes-and-known-issues/chapter-4-resolved-issuesl&quot;&gt;Drools 6.5.1.Final Resolved Issues Section&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect2&quot;&gt;
+      &lt;h3 id=&quot;early-access-technical-preview-tooling-highlights&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#early-access-technical-preview-tooling-highlights&quot;&gt;&lt;/a&gt;Early Access/ Technical Preview Tooling Highlights&lt;/h3&gt;
+      &lt;div class=&quot;sect3&quot;&gt;
+      &lt;h4 id=&quot;data-virtualization-highlights&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#data-virtualization-highlights&quot;&gt;&lt;/a&gt;Data Virtualization Highlights&lt;/h4&gt;
+      &lt;div class=&quot;sect4&quot;&gt;
+      &lt;h5 id=&quot;teiid-designer-highlights&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#teiid-designer-highlights&quot;&gt;&lt;/a&gt;Teiid Designer Highlights&lt;/h5&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;See the &lt;a href=&quot;https://access.redhat.com/documentation/en/red-hat-jboss-developer-studio-integration-stack/10.0/paged/1000ga-release-notes-and-known-issues/chapter-4-resolved-issues&quot;&gt;Teiid Designer 10.0.2.Final Release Notes&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect1&quot;&gt;
+      &lt;h2 id=&quot;what-s-an-integration-stack&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#what-s-an-integration-stack&quot;&gt;&lt;/a&gt;What’s an Integration Stack?&lt;/h2&gt;
+      &lt;div class=&quot;sectionbody&quot;&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;Red Hat JBoss Developer Studio Integration Stack is a set of Eclipse-based development tools. It further enhances the IDE functionality provided by JBoss Developer Studio, with plug-ins specifically for use when developing for other Red Hat JBoss products.  It’s where the Fuse Tooling, DataVirt Tooling and BRMS tooling is aggregated.  The following frameworks are supported:&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect2&quot;&gt;
+      &lt;h3 id=&quot;jboss-fuse-development&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#jboss-fuse-development&quot;&gt;&lt;/a&gt;JBoss Fuse Development&lt;/h3&gt;
+      &lt;div class=&quot;ulist&quot;&gt;
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;http://tools.jboss.org/features/apachecamel.html&quot;&gt;Fuse Tooling&lt;/a&gt; - JBoss Fuse Development provides tooling for Red Hat JBoss Fuse.  It features the latest versions of the Fuse Data Transformation tooling, SwitchYard and access to the Fuse SAP Tool Suite.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;http://tools.jboss.org/features/switchyard.html&quot;&gt;SwitchYard&lt;/a&gt; - A lightweight service delivery framework providing full lifecycle support for developing, deploying, and managing service-oriented applications.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect2&quot;&gt;
+      &lt;h3 id=&quot;jboss-business-process-and-rules-development-2&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#jboss-business-process-and-rules-development-2&quot;&gt;&lt;/a&gt;JBoss Business Process and Rules Development&lt;/h3&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;JBoss Business Process and Rules Development plug-ins provide design, debug and testing tooling for developing business processes for Red Hat JBoss BRMS and Red Hat JBoss BPM Suite.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ulist&quot;&gt;
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;http://tools.jboss.org/features/bpel.html&quot;&gt;BPEL Designer&lt;/a&gt; - Orchestrating your business processes.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;http://tools.jboss.org/features/bpmn2.html&quot;&gt;BPMN2 Modeler&lt;/a&gt; - A graphical modeling tool which allows creation and editing of Business Process Modeling Notation diagrams using graphiti.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;http://tools.jboss.org/features/drools.html&quot;&gt;Drools&lt;/a&gt; - A Business Logic integration Platform which provides a unified and integrated platform for Rules, Workflow and Event Processing including KIE.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;http://tools.jboss.org/features/jbpm.html&quot;&gt;jBPM6&lt;/a&gt; - A flexible Business Process Management (BPM) suite.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect2&quot;&gt;
+      &lt;h3 id=&quot;jboss-data-virtualization-development&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#jboss-data-virtualization-development&quot;&gt;&lt;/a&gt;JBoss Data Virtualization Development&lt;/h3&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;JBoss Data Virtualization Development plug-ins provide a graphical interface to manage various aspects of Red Hat JBoss Data Virtualization instances, including the ability to design virtual databases and interact with associated governance repositories.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ulist&quot;&gt;
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;http://tools.jboss.org/features/teiiddesigner.html&quot;&gt;Teiid Designer&lt;/a&gt; - A visual tool that enables rapid, model-driven definition, integration, management and testing of data services without programming using the Teiid runtime framework.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect2&quot;&gt;
+      &lt;h3 id=&quot;jboss-integration-and-soa-development&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#jboss-integration-and-soa-development&quot;&gt;&lt;/a&gt;JBoss Integration and SOA Development&lt;/h3&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;JBoss Integration and SOA Development plug-ins provide tooling for developing, configuring and deploying BRMS, SwitchYard and Fuse applications to Red Hat JBoss Fuse and Fuse Fabric containers, Apache ServiceMix, and Apache Karaf instances.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ulist&quot;&gt;
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;p&gt;All of the Business Process and Rules Development plugins, plus…​&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;http://tools.jboss.org/features/apachecamel.html&quot;&gt;Fuse Apache Camel Tooling&lt;/a&gt; - A graphical tool for integrating software components that works with Apache ServiceMix, Apache ActiveMQ, Apache Camel and the FuseSource distributions.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;p&gt;&lt;a href=&quot;http://tools.jboss.org/features/switchyard.html&quot;&gt;SwitchYard&lt;/a&gt; - A lightweight service delivery framework providing full lifecycle support for developing, deploying, and managing service-oriented applications.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect2&quot;&gt;
+      &lt;h3 id=&quot;the-jboss-tools-website-features-tab&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#the-jboss-tools-website-features-tab&quot;&gt;&lt;/a&gt;The JBoss Tools website features tab&lt;/h3&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;Don’t miss the &lt;a href=&quot;http://tools.jboss.org/features&quot;&gt;Features tab&lt;/a&gt; for up to date information on your favorite Integration Stack components.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sect1&quot;&gt;
+      &lt;h2 id=&quot;installation&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;http://tools.jboss.org/blog/news.atom#installation&quot;&gt;&lt;/a&gt;Installation&lt;/h2&gt;
+      &lt;div class=&quot;sectionbody&quot;&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;The easiest way to install the Integration Stack components is through the &lt;a href=&quot;http://developers.redhat.com/download-manager/file/devstudio-integration-stack-10.0.0.GA-standalone-installer.jar&quot;&gt;stand-alone installer&lt;/a&gt;.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;For a complete set of Integration Stack installation instructions, see &lt;a href=&quot;https://access.redhat.com/documentation/en/red-hat-jboss-developer-studio-integration-stack/10.0/paged/installation-guide/&quot;&gt;Integration Stack Installation Instructions&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;&lt;em&gt;Give it a try!&lt;/em&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;paragraph&quot;&gt;
+      &lt;p&gt;Paul Leacu.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;</description>
+	<pubDate>Fri, 18 Nov 2016 08:20:22 +0000</pubDate>
+</item>
+<item>
 	<title>InfoQ Eclipse feed: Eclipse Che 5.0 Brings Docker Compose Support, Workspace Agents, and More</title>
 	<guid isPermaLink="true">http://www.infoq.com/news/2016/11/eclipse-che-50-announced?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=Eclipse</guid>
 	<link>http://www.infoq.com/news/2016/11/eclipse-che-50-announced?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=Eclipse</link>
@@ -28,7 +212,7 @@
 &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Wir Itemiker waren natürlich auch mit einigen Vorträgen vertreten. Alexander Nyßen eröffnete die itemis-Talks am Dienstag mit seinem Vortrag zu &lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;“GEF (4) – Dot Oh Dot Oh”. &lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Holger Schill und ich hatten am Mittwoch unseren ersten Talk zum Thema &lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&quot;Recipes to build Code Generators for Non-Xtext Models with Xtend“. &lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt; Im anschließenden Modeling Symposium haben wir gezeigt, &lt;span style=&quot;font-weight: 400;&quot;&gt;wie &lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;man&lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt; für eine Xtext DSL eine Extension für Visual Studio Code generiert&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;. Am Donnerstag ging es zu den Themen&lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&quot;From stairway to heaven onto the highway to hell with Xtext“&lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt; und &lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&quot;Xtext beyond the defaults – How to tackle performance problems“ weiter. Alle unsere Talks waren gut besucht und wir freuten uns über viel positives Feedback.&lt;/span&gt;&lt;/p&gt; 
 &lt;h2&gt;Keine EclipseCon ohne Party&lt;/h2&gt; 
 &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Natürlich wurde – gerade am Mittwochabend im Club ECE – auch viel gefeiert und bei dem ein oder anderen Bierchen Networking betrieben. Wie jedes Jahr haben wir viele interessante Kontakte knüpfen können und alte Bekannte wiedergetroffen.&lt;/span&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;img alt=&quot;EclipseCon2016-itemis-team.jpg&quot; src=&quot;https://blogs.itemis.com/hs-fs/hubfs/blog-files/EclipseCon2016-itemis-team.jpg?t=1479396881796&amp;amp;width=640&amp;amp;name=EclipseCon2016-itemis-team.jpg&quot; style=&quot;width: 640px; display: block; margin-left: auto; margin-right: auto;&quot; width=&quot;640&quot; /&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Mit 619 Teilnehmern hat die EclipseCon 2016 tatsächlich einen Besucherrekord aufgestellt. Dabei war das Verhältnis von Alumni zu Ersttätern etwa 50%. itemis war mit gut 15 Kollegen die stärkste Fraktion auf der Konferenz und als Sponsor mit einem Stand vertreten, an dem wir mit einigen Konferenzteilnehmern interessante Gespräche rund um Xtext, GEF und SmartHome führen konnten. &lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;span&gt;In Kooperation mit Eclipse &lt;/span&gt;&lt;span&gt;konnten wir zudem zwei Studenten die Möglichkeit geben, am Mittwoch kostenlos an der EclipseCon 2016 teilzunehmen.&lt;/span&gt;&lt;span&gt; &lt;/span&gt;&lt;span&gt;So konnten sie zum ersten Mal Themen &lt;/span&gt;&lt;span&gt;rund um Eclipse, Xtext, GEF und Co. hautnah erleben und waren begeistert, die Möglichkeit an der Teilnahme bekommen zu haben und sich mit der Community austauschen zu können. Ralph Müller hat sich die Ehre gegeben und die Studenten persönlich durch die Ausstellung begleitet.&lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;img alt=&quot;EclipseCon2016-itemis-team.jpg&quot; src=&quot;https://blogs.itemis.com/hs-fs/hubfs/blog-files/EclipseCon2016-itemis-team.jpg?t=1479399430559&amp;amp;width=640&amp;amp;name=EclipseCon2016-itemis-team.jpg&quot; style=&quot;width: 640px; display: block; margin-left: auto; margin-right: auto;&quot; width=&quot;640&quot; /&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Mit 619 Teilnehmern hat die EclipseCon 2016 tatsächlich einen Besucherrekord aufgestellt. Dabei war das Verhältnis von Alumni zu Ersttätern etwa 50%. itemis war mit gut 15 Kollegen die stärkste Fraktion auf der Konferenz und als Sponsor mit einem Stand vertreten, an dem wir mit einigen Konferenzteilnehmern interessante Gespräche rund um Xtext, GEF und SmartHome führen konnten. &lt;/span&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;span&gt;In Kooperation mit Eclipse &lt;/span&gt;&lt;span&gt;konnten wir zudem zwei Studenten die Möglichkeit geben, am Mittwoch kostenlos an der EclipseCon 2016 teilzunehmen.&lt;/span&gt;&lt;span&gt; &lt;/span&gt;&lt;span&gt;So konnten sie zum ersten Mal Themen &lt;/span&gt;&lt;span&gt;rund um Eclipse, Xtext, GEF und Co. hautnah erleben und waren begeistert, die Möglichkeit an der Teilnahme bekommen zu haben und sich mit der Community austauschen zu können. Ralph Müller hat sich die Ehre gegeben und die Studenten persönlich durch die Ausstellung begleitet.&lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt; 
 &lt;h2&gt;Mehr erfahren?&lt;/h2&gt; 
 &lt;p&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Ihr wollt mehr über die Talks und Keynotes erfahren? Wir haben alle wichtigen Links für euch zusammengefasst:&lt;/span&gt;&lt;/p&gt; 
 &lt;ul&gt; 
@@ -357,7 +541,7 @@ See you on December 5th in Berlin!</description>
  &lt;li&gt;Language name: &lt;code class=&quot;highlighter-rouge&quot;&gt;com.itemis.xtext.example.domainmodel.Domainmodel&lt;/code&gt;&lt;/li&gt; 
  &lt;li&gt;Language extensions: &lt;code class=&quot;highlighter-rouge&quot;&gt;dmodel&lt;/code&gt;&lt;/li&gt; 
 &lt;/ul&gt; 
-&lt;p&gt;&lt;img alt=&quot;new-wizard-page1-Xtext-DSL-Gradle.png&quot; height=&quot;631&quot; src=&quot;https://blogs.itemis.com/hs-fs/hubfs/blog-files/new_wizard_page1%202.png?t=1479396881796&amp;amp;width=531&amp;amp;height=631&amp;amp;name=new_wizard_page1%202.png&quot; style=&quot;display: block; margin-left: auto; margin-right: auto;&quot; width=&quot;531&quot; /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img alt=&quot;new-wizard-page1-Xtext-DSL-Gradle.png&quot; height=&quot;631&quot; src=&quot;https://blogs.itemis.com/hs-fs/hubfs/blog-files/new_wizard_page1%202.png?t=1479399430559&amp;amp;width=531&amp;amp;height=631&amp;amp;name=new_wizard_page1%202.png&quot; style=&quot;display: block; margin-left: auto; margin-right: auto;&quot; width=&quot;531&quot; /&gt;&lt;/p&gt; 
 &lt;p&gt;On the next page, select the following values:&lt;/p&gt; 
 &lt;ul&gt; 
  &lt;li&gt;Generic IDE Support&lt;/li&gt; 
@@ -365,7 +549,7 @@ See you on December 5th in Berlin!</description>
  &lt;li&gt;Preferred Build System: Gradle&lt;/li&gt; 
  &lt;li&gt;Source Layout: Maven/Gradle&lt;/li&gt; 
 &lt;/ul&gt; 
-&lt;p&gt;&lt;img alt=&quot;new-wizard-page2-Xtext-DSL-Gradle.png&quot; height=&quot;631&quot; src=&quot;https://blogs.itemis.com/hs-fs/hubfs/blog-files/new_wizard_page2%202.png?t=1479396881796&amp;amp;width=532&amp;amp;height=631&amp;amp;name=new_wizard_page2%202.png&quot; style=&quot;display: block; margin-left: auto; margin-right: auto;&quot; width=&quot;532&quot; /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img alt=&quot;new-wizard-page2-Xtext-DSL-Gradle.png&quot; height=&quot;631&quot; src=&quot;https://blogs.itemis.com/hs-fs/hubfs/blog-files/new_wizard_page2%202.png?t=1479399430559&amp;amp;width=532&amp;amp;height=631&amp;amp;name=new_wizard_page2%202.png&quot; style=&quot;display: block; margin-left: auto; margin-right: auto;&quot; width=&quot;532&quot; /&gt;&lt;/p&gt; 
 &lt;p&gt;After clicking &lt;em&gt;Finish&lt;/em&gt; the wizard will create a directory structure that looks like this:&lt;/p&gt; 
 &lt;div class=&quot;highlighter-rouge&quot;&gt; 
  &lt;pre class=&quot;prettyprint&quot;&gt;└── com.itemis.xtext.example.domainmodel.parent
@@ -489,14 +673,6 @@ Since Heroku is shutting down the service when there are no users, please give i
 &lt;p&gt;As conclusion I find the deployment of custom Docker images to Heroku even easier than the previous git deployment.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://toedter.com/?flattrss_redirect&amp;amp;id=1477&amp;amp;md5=f283b6cb40f47289939b61a4f87c67a3&quot;&gt;&lt;img alt=&quot;Flattr this!&quot; src=&quot;http://toedter.com/wp-content/plugins/flattr/img/flattr-badge-white.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
 	<pubDate>Sat, 05 Nov 2016 17:38:12 +0000</pubDate>
-</item>
-<item>
-	<title>Fabio Zadrozny: LiClipse 3.2.1</title>
-	<guid isPermaLink="false">tag:blogger.com,1999:blog-7855001383687474475.post-2620458055770009520</guid>
-	<link>http://liclipse.blogspot.com/2016/11/liclipse-321.html</link>
-	<description>The new LiClipse release is out.&lt;br /&gt;&lt;br /&gt;The major updates were actually to PyDev, which has fixes such as a regression added on 5.3.0 where &lt;b&gt;Ctrl+1&lt;/b&gt; was not properly resolving symbols from dependent projects, code analysis on a particular case with &lt;b&gt;PEP 448&lt;/b&gt; (list unpacking), auto-indents &lt;b&gt;async&lt;/b&gt; and &lt;b&gt;await &lt;/b&gt;blocks, highlights &lt;b&gt;async &lt;/b&gt;and &lt;b&gt;await &lt;/b&gt;blocks and fixes an issue in the code completion using from..import..as aliases.&lt;br /&gt;&lt;br /&gt;It does have one new feature in which &lt;b&gt;Ctrl+Shift+O&lt;/b&gt; (which fixes unresolved tokens by adding the needed imports) uses the improved sorting also used for the code-completion (so that tokens from the project appear before tokens from other projects, which in turn appear before tokens from the standard library). Also, the &lt;b&gt;substring completion&lt;/b&gt; is now &lt;b&gt;on by default&lt;/b&gt; (it may be turned off in the code-completion preferences).&lt;br /&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;Still, besides the updates to PyDev, the stock LiClipse themes were improved so that the current selected tab colors (on the active or inactive views) can be configured (&lt;b&gt;selectedTabInitialBackground &lt;/b&gt;and &lt;b&gt;selectedTabActiveInitialBackground&lt;/b&gt; in the theme preferences) and some colors were changed to have better defaults in a number of themes.&lt;/div&gt;</description>
-	<pubDate>Fri, 04 Nov 2016 09:28:06 +0000</pubDate>
-	<author>noreply@blogger.com (Fabio Zadrozny)</author>
 </item>
 
 </channel>
