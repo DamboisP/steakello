@@ -1,7 +1,0 @@
-package util;
-
-import model.GameBoard;
-
-public interface Observable {
-	public void notifyView(int gameMode, GameBoard gameBoard);
-}

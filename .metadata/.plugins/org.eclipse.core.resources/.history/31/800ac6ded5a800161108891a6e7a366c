@@ -1,7 +1,0 @@
-package util;
-
-import model.GameBoard;
-
-public interface Observer {
-	public void update(int gameMode, GameBoard gameBoard);
-}
