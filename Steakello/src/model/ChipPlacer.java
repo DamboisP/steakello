@@ -1,13 +1,16 @@
 package model;
 
+/** 
+ * 
+ * @author Steffi Baugnies 
+ * Groupe 8
+ * 2TL1
+ *
+ */
 
 import model.Chip;
 
-/** 
- * 
- * @author Pierre
- *
- */
+
 public class ChipPlacer {
 	
 	private int chipsToFlip[][] = new int[8][8];
@@ -233,7 +236,6 @@ public class ChipPlacer {
 						capturedChip = true;
 					}
 				}
-				//
 
 			}
 		}
