@@ -32,8 +32,7 @@ public class ChipPlacerTest {
 		chipArray[3][4].setSet(true);
 		chipArray[4][4].setPlayer(1);
 		chipArray[4][4].setSet(true);
-		assertEquals(true, PCtest.placeChip(chipArray , 8, 5, 3, 1));
-		
+		assertEquals(true, PCtest.placeChip(chipArray , 8, 5, 3, 1));	
 	}
 
 	@Test
