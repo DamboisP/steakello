@@ -2,7 +2,8 @@ package model;
 
 /** 
  * 
- * @author Bonhomme Jean-Baptiste 2Tl1 groupe8
+ * @author Bonhomme Jean-Baptiste
+ * Groupe8 2Tl1
  *
  */
 
@@ -15,7 +16,7 @@ public class GameBoard {
 	private ChipPlacer chipPlacer = new ChipPlacer();
 	
 	/**
-	 * Méthode GameBoard initialise le plateau de jeux
+	 * Constructeur GameBoard initialise le plateau de jeux
 	 * et place les 4 premieres pièces
 	 */
 	public GameBoard(){
@@ -133,7 +134,8 @@ public class GameBoard {
 	
 	/**
 	 * Méthode score
-	 * @return le score de chaque joueur
+	 * @return le score de chaque joueur 
+	 * sous la forme d'un tableau de 2 entiers
 	 */
 	public int[] score() {
 		int[] score = new int[2];
@@ -149,7 +151,7 @@ public class GameBoard {
 		}
 		return score;
 	}
-	
+
 	/**
 	 * Méthode setCoords
 	 * Attribue la coordonnée à la pièce du joueur dont le tour est en cours
