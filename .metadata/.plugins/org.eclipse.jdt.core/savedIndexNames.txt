@@ -1,1 +1,0 @@
-INDEX VERSION 1.129+C:\Users\Inviter\Documents\GitHub\steakello\.metadata\.plugins\org.eclipse.jdt.core

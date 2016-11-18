@@ -1,7 +1,0 @@
-package model;
-
-import util.Observable;
-
-public class GameModel implements Observable{
-
-}
