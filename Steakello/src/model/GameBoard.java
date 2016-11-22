@@ -36,6 +36,103 @@ public class GameBoard {
 	}
 	
 	/**
+	 * Méthode isFull vérifie
+	 * si l'array chipArray est plein
+	 * @return true si oui 
+	 * sinon 
+	 * @return false
+	 */
+	public boolean isFull() {
+		int chips = 0;
+		for(int i = 0; i < chipArray.length; i++){
+			for(int j = 0; j < chipArray.length; j++){
+				if(chipArray[i][j].isSet()){
+					chips++;
+				}
+			}
+		}
+		if(chips == Math.pow(size, 2)){
+			return true;
+		}
+	
+	return false;
+	}
+	
+	/**
+	 * Méthode score met à jour le score de chaque joueur
+	 * en comptant le nombre de Chip que possède chaque player
+	 * par itération du tableau chipArray
+	 * @return le score de chaque joueur 
+	 * sous la forme d'un tableau de 2 entiers
+	 */
+	public int[] score() {
+		int[] score = new int[2];
+		for(int i = 0; i < chipArray.length; i++){
+			for(int j = 0; j < chipArray.length; j++){
+				if(chipArray[i][j].getPlayer() == 1){
+					score[0]++;
+				}
+				else if(chipArray[i][j].getPlayer() == 2){
+					score[1]++;
+				}
+			}
+		}
+		return score;
+	}
+
+	/**
+	 * Méthode setCoords
+	 * Attribue la coordonnée à la pièce du joueur dont le tour est en cours
+	 * Donne la main à l'autre joueur quand le tour se termine
+	 */
+	public void setCoords(int input) {
+		if(isFull()){
+			if(score()[0] > score()[1]){
+				System.out.println("Player 1 wins");
+			}else{
+				System.out.println("Player 2 wins");
+			}
+		}
+		else if(x == -1){
+			x = input;
+		}
+		else if(x != -1 && y == -1){
+			y = input;
+			if(chipPlacer.placeChip(chipArray, size, x, y, player)){
+				switchPlayer();
+			}
+
+			x = -1;
+			y = -1;
+		}
+	}
+	
+	/**
+	 * Méthode switchPlayer 
+	 * Donne la main au joueur adverse quand le tour se termine
+	 */
+	public void switchPlayer() {
+		if(player == 1){
+			player = 2;
+		}
+		else if(player == 2){
+			player = 1;
+		}
+		
+	}
+	
+	/**
+	 * Méthode addChip ajoute une pièce 
+	 * dans l'Array chipArray
+	 * Vérifie si la position dans l'array chipArray est libre
+	 * Attribue cette position au joueur dont le tour est en cours.
+	 */
+	public void addChip(int x, int y, int player){
+		chipArray[x][y].setSet(true);
+		chipArray[x][y].setPlayer(player);;
+	}
+	
+	/**
 	 * Méthode getChipArray ramène les données de l'Array chipArray
 	 * @return un array en 2 dimensions nommé chipArray contenant n steaks
 	 */
@@ -82,101 +179,6 @@ public class GameBoard {
 	 */
 	public void setSize(int size) {
 		this.size = size;
-	}
-	
-	/**
-	 * Méthode addChip ajoute une pièce 
-	 * dans l'Array chipArray
-	 * Vérifie si la position dans l'array chipArray est libre
-	 * Attribue cette position au joueur dont le tour est en cours.
-	 */
-	public void addChip(int x, int y, int player){
-		chipArray[x][y].setSet(true);
-		chipArray[x][y].setPlayer(player);;
-	}
-	
-	/**
-	 * Méthode switchPlayer 
-	 * Donne la main au joueur adverse quand le tour se termine
-	 */
-	public void switchPlayer() {
-		if(player == 1){
-			player = 2;
-		}
-		else if(player == 2){
-			player = 1;
-		}
-		
-	}
-	
-	/**
-	 * Méthode isFull vérifie
-	 * si l'array chipArray est plein
-	 * @return true si oui 
-	 * sinon 
-	 * @return false
-	 */
-	public boolean isFull() {
-		int chips = 0;
-		for(int i = 0; i < chipArray.length; i++){
-			for(int j = 0; j < chipArray.length; j++){
-				if(chipArray[i][j].isSet()){
-					chips++;
-				}
-			}
-		}
-		if(chips == Math.pow(size, 2)){
-			return true;
-		}
-	
-	return false;
-	}
-	
-	/**
-	 * Méthode score
-	 * @return le score de chaque joueur 
-	 * sous la forme d'un tableau de 2 entiers
-	 */
-	public int[] score() {
-		int[] score = new int[2];
-		for(int i = 0; i < chipArray.length; i++){
-			for(int j = 0; j < chipArray.length; j++){
-				if(chipArray[i][j].getPlayer() == 1){
-					score[0]++;
-				}
-				else if(chipArray[i][j].getPlayer() == 2){
-					score[1]++;
-				}
-			}
-		}
-		return score;
-	}
-
-	/**
-	 * Méthode setCoords
-	 * Attribue la coordonnée à la pièce du joueur dont le tour est en cours
-	 * Donne la main à l'autre joueur quand le tour se termine
-	 */
-	public void setCoords(int input) {
-		if(isFull()){
-			if(score()[0] > score()[1]){
-				System.out.println("Player 1 wins");
-			}else{
-				System.out.println("Player 2 wins");
-			}
-		}
-		else if(x == -1){
-			x = input;
-		}
-		else if(x != -1 && y == -1){
-			y = input;
-			if(chipPlacer.placeChip(chipArray, size, x, y, player)){
-				switchPlayer();
-			}
-
-			x = -1;
-			y = -1;
-		}
 	}
 	
 	/** 

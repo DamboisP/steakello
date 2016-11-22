@@ -14,15 +14,17 @@ import org.junit.Test;
 public class GameBoardTest {
 
 	@Test
-	public final void testIsFull() {
+	public void testIsFull() {
 		GameBoard GBTest = new GameBoard();
 		assertEquals(false , GBTest.isFull());
 	}
 
 	@Test
-	public final void testScore() {
+	public void testScore() {
 		GameBoard GBTest = new GameBoard();
 		int[] expectedResult = new int[2];
-		assertEquals(expectedResult.length, GBTest.score().length);
+		expectedResult[0] = 2;
+		expectedResult[1] = 2;
+		assertArrayEquals(expectedResult, GBTest.score());
 	}
 }
