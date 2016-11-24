@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Groupe 8
+ * 1TL1
+ */
+
 import controller.GameController;
 import view.GameViewConsole;
 import view.GameViewGUI;

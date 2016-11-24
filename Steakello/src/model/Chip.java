@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * 
+ * @author 
+ * groupe 8
+ * 2TL1
+ *
+ */
 public class Chip {
 	
 	private boolean set;
