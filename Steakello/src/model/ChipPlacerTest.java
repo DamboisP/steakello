@@ -40,8 +40,9 @@ public class ChipPlacerTest {
 		chipArray[3][4].setSet(true);
 		chipArray[4][4].setPlayer(1);
 		chipArray[4][4].setSet(true);
-		// Vérifications et placements valides 
-		assertEquals(true, PCtest.placeChip(chipArray, 8, 5, 3, 1)); // Vérifie qu'il y a un jeton adversaire vers la gauche
+		// Vérifications et placements valides
+		// Les tests ne peuvent réussir que si les précédents ont réussi et donc que les jetons ont été ajouté
+		assertEquals(true, PCtest.placeChip(chipArray, 8, 5, 3, 1)); // Vérifie qu'il y a un jeton adversaire qu'on peut retourner vers la gauche
 		assertEquals(true, PCtest.placeChip(chipArray, 8, 5, 2, 2)); // vers le bas à gauche
 		assertEquals(true, PCtest.placeChip(chipArray, 8, 4, 2, 1)); // vers le bas
 		assertEquals(true, PCtest.placeChip(chipArray, 8, 3, 2, 2)); // vers le haut 
