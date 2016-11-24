@@ -2,7 +2,7 @@ package model;
 
 /**
  * Groupe 8
- * 1TL1
+ * 2TL1
  */
 
 import controller.GameController;
