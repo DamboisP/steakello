@@ -16,8 +16,8 @@ public class GameBoard {
 	private ChipPlacer chipPlacer = new ChipPlacer();
 	
 	/**
-	 * Constructeur GameBoard initialise le plateau de jeux
-	 * et place les 4 premieres pièces
+	 * Constructeur GameBoard initialise le plateau de jeu
+	 * et place les 4 premiers Chip
 	 */
 	public GameBoard(){
 		chipArray = new Chip[size][size];
@@ -81,9 +81,16 @@ public class GameBoard {
 	}
 
 	/**
-	 * Méthode setCoords
-	 * Attribue la coordonnée à la pièce du joueur dont le tour est en cours
-	 * Donne la main à l'autre joueur quand le tour se termine
+	 * Méthode setCoords vérifie si Gameboard est plein 
+	 * si oui 
+	 * compare les deux scores et détermine le gagnant
+	 * sinon si
+	 * le Gameboard n'est pas plein, continue le tour normalement
+	 * sinon si 
+	 * x n'est pas attribué, l'attribue
+	 * sinon si
+	 * x est attribué et y ne l'est pas, l'attribue et passe le tour
+	 * au joueur adverse
 	 */
 	public void setCoords(int input) {
 		if(isFull()){
@@ -124,7 +131,6 @@ public class GameBoard {
 	/**
 	 * Méthode addChip ajoute une pièce 
 	 * dans l'Array chipArray
-	 * Vérifie si la position dans l'array chipArray est libre
 	 * Attribue cette position au joueur dont le tour est en cours.
 	 */
 	public void addChip(int x, int y, int player){
