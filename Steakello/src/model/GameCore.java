@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Groupe 8
+ * 2TL1
+ */
+
 import java.util.Observable;
 
 public class GameCore extends Observable{
