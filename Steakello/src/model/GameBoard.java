@@ -89,8 +89,8 @@ public class GameBoard {
 	 * sinon si 
 	 * x n'est pas attribué, l'attribue
 	 * sinon si
-	 * x est attribué et y ne l'est pas, l'attribue et passe le tour
-	 * au joueur adverse
+	 * x est attribué et y ne l'est pas, attribue y et place le Chip
+	 * passe ensuite le tour  et donne la main au joueur adverse
 	 */
 	public void setCoords(int input) {
 		if(isFull()){
