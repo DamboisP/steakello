@@ -57,6 +57,7 @@ public class ChipPlacerTest {
 		assertEquals(false, PCtest.placeChip(chipArray, 8, 6, 5, 1)); 
 		assertEquals(false, PCtest.placeChip(chipArray, 8, 4, 1, 2)); 
 		assertEquals(false, PCtest.placeChip(chipArray, 8, 5, 6, 1)); 
+		assertEquals(false, PCtest.placeChip(chipArray, 8, -1, -3, 1)); 
 		
 	}
 	
@@ -105,6 +106,7 @@ public class ChipPlacerTest {
 		assertEquals(false, CheckPValTest.checkPlacementValidity(chipArray, 1, 0, 2)); 
 		assertEquals(false, CheckPValTest.checkPlacementValidity(chipArray, 2, 6, 1)); 
 		assertEquals(false, CheckPValTest.checkPlacementValidity(chipArray, 6, 5, 2)); 
+		assertEquals(false, CheckPValTest.checkPlacementValidity(chipArray, -1, 5, 2)); 
 		
 	}
 	
@@ -161,6 +163,8 @@ public class ChipPlacerTest {
 		assertEquals(false, CheckChipFlipTest.checkForChipToFlip(chipArray, 2, 3, 1));
 		assertEquals(false, CheckChipFlipTest.checkForChipToFlip(chipArray, 3, 2, 1));
 		assertEquals(false, CheckChipFlipTest.checkForChipToFlip(chipArray, 5, 2, 2));
+		assertEquals(false, CheckChipFlipTest.checkForChipToFlip(chipArray, 5, -128, 2));
+		
 		
 	}
 	
