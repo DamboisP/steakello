@@ -5,7 +5,9 @@ import model.Chip;
 
 /** 
  * 
- * @author Pierre
+ * @author Steffi Baugnies
+ * Groupe 8 
+ * 2TL1
  *
  */
 public class ChipPlacer {
