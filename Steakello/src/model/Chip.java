@@ -2,7 +2,7 @@ package model;
 
 /**
  * 
- * @author 
+ * @author Steffi Baugnies
  * groupe 8
  * 2TL1
  *
@@ -13,14 +13,17 @@ public class Chip {
 	private int player;
 	
 	/**
-	 * La pièce n'est pas placée par défaut
+	 * Méthode Chip fait que la case est vide par défaut,
+	 * le jeton n'est pas placée par défaut
 	 */
 	public Chip(){
 		this.set = false;
 	}
 	
 	/**
-	 * Retourne la représentation graphique de la pièce
+	 * Méthode toString
+	 * @return la représentation graphique de la case 
+	 * qu'elle soit occupée par le joueur 1, le joueur 2 ou libre
 	 */
 	public String toString(){
 		if(set && player == 1){
@@ -31,7 +34,11 @@ public class Chip {
 		}
 		return "[ ]";
 	}
-
+	
+	/**
+	 * Méthode isSet 
+	 * @return renvoie si le jeton est placée ou pas
+	 */
 	public boolean isSet() {
 		return set;
 	}
