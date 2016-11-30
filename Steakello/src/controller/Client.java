@@ -15,10 +15,11 @@ import java.net.UnknownHostException;
 public class Client {
 	//private int numPort = 0; num de port à définir
 	//Pour tester les sockets, d'abord lancer le Server puis le Client.
-	Socket socket;
-	public static void main(String[] args) {
+	public Socket socket;
+	
+	public void connnectToServer(InetAddress ipAddress) {
 		try {
-			Socket socket = new Socket(InetAddress.getLocalHost(), 64899);
+			Socket socket = new Socket(ipAddress, 64899);
 			socket.close();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
@@ -26,4 +27,6 @@ public class Client {
 			e.printStackTrace();
 		}
 	}
+
+
 }

@@ -13,14 +13,17 @@ import java.net.Socket;
 
 public class Server {
 	//Pour tester les sockets, d'abord lancer le Server puis le Client.
-	public static void main(String[] args) {
+	public boolean connected = false;
+	
+	public void waitForConnection() {
 		
 		Socket socketOfServer;
 		
 		try {
 		ServerSocket serversocket= new ServerSocket(64899);
 		socketOfServer = serversocket.accept();
-		System.out.println("connected");
+		System.out.println("Client connected");
+		connected = true;
 			serversocket.close();
 			socketOfServer.close();
 		} catch (IOException e) {

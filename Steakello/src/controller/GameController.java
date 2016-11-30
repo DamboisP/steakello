@@ -18,6 +18,9 @@ public class GameController {
 				gameCore.userInput(input);
 			}
 		}
+		else if(gameCore.getGameMode() == 2){
+			gameCore.userInput(input);
+		}
 		else if(gameCore.getGameMode() >= 1){
 			if(input >= 1 && input <= gameCore.getGameBoard().getSize()){
 				gameCore.userInput(input);

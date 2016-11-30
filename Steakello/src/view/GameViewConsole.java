@@ -1,16 +1,20 @@
 package view;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Observable;
 import java.util.Scanner;
 
+import controller.Client;
 import controller.GameController;
+import controller.Server;
 import model.Chip;
 import model.GameCore;
 
 public class GameViewConsole extends GameView{
 
 	private Scanner scanner;
-	
+
 	public GameViewConsole(GameCore gameCore, GameController controller) {
 		super(gameCore, controller);
 		scanner = new Scanner(System.in);
@@ -21,6 +25,25 @@ public class GameViewConsole extends GameView{
 	public void update(Observable o, Object arg) {
 		if(gameCore.getGameMode() == 0){
 			displayMenu();
+		}
+		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 0){
+			System.out.println("Voulez vous être serveur (1) ou client (2) ?");
+		}
+		else if(gameCore.getGameMode() == 2){
+			if(gameCore.serverOrClient == 1){
+				gameCore.server = new Server();
+				gameCore.server.waitForConnection();
+			}
+			else if(gameCore.serverOrClient == 2){
+				 gameCore.client = new Client();
+				try {
+					gameCore.client.connnectToServer(InetAddress.getLocalHost());
+					
+				} catch (UnknownHostException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 		else{
 			displayGame();

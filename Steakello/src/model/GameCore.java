@@ -8,11 +8,18 @@ package model;
 
 import java.util.Observable;
 
+import controller.Client;
+import controller.Server;
+
 public class GameCore extends Observable{
 
 	private GameBoard gameBoard;
 	private int gameMode = 0;
-
+	public int serverOrClient = 0;
+	
+	public Server server;
+	public Client client;
+	
 	/**
 	 * Traite les inputs de l'utitlisateur et fait l'action requise en fonction du 
 	 * mode de jeu en cours. Si "gameMode" est égal à 0, on considère que l'input
@@ -24,6 +31,9 @@ public class GameCore extends Observable{
 		if(gameMode == 0){
 			gameMode = input;
 			gameBoard = new GameBoard();
+		}
+		else if(gameMode == 2 && serverOrClient == 0){
+			serverOrClient = input;
 		}
 		else if(gameMode >= 1){
 			gameBoard.setCoords(input-1);
