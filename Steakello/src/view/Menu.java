@@ -32,6 +32,7 @@ public class Menu extends JPanel{
 	
 	private JButton local2p;
 	private JButton online2p;
+	private JButton rules;
 	
 	private int buttonWidth;
 	private int buttonHeight;
@@ -70,15 +71,27 @@ public class Menu extends JPanel{
 		        controller.setInput(2);
 		    }
 		};
+		ActionListener ruleslistener = new ActionListener(){
+			 public void actionPerformed(ActionEvent e)
+			 {
+
+			     System.out.println(3);
+			     controller.setInput(3);
+			 }
+		};
 		
 		local2p = new JButton("Local 2P");
 		online2p = new JButton("Online 2P");
-		local2p.setBounds(windowWidth/2 - buttonWidth/2, windowHeight/5 * 2, buttonWidth, buttonHeight);
-		online2p.setBounds(windowWidth/2 - buttonWidth/2, windowHeight/5 * 3, buttonWidth, buttonHeight);
+		rules = new JButton("Rules");
+		local2p.setBounds(windowWidth/2 - buttonWidth/2, windowHeight/5 * 3, buttonWidth, buttonHeight);
+		online2p.setBounds(windowWidth/2 - buttonWidth/2, windowHeight/5 * 4, buttonWidth, buttonHeight);
+		rules.setBounds(windowWidth/2 - buttonWidth/2, windowHeight/5 * 2, buttonWidth, buttonHeight);
 		local2p.addActionListener(local2plistener);
 		online2p.addActionListener(online2plistener);
+		rules.addActionListener(ruleslistener);
 		this.add(local2p);
 		this.add(online2p);
+		this.add(rules);
 	}
 
 	@Override

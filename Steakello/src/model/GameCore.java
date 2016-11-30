@@ -14,7 +14,7 @@ public class GameCore extends Observable{
 	private int gameMode = 0;
 
 	/**
-	 * Traite les inputs de l'utitlisateur et fais l'action requise en fonction du 
+	 * Traite les inputs de l'utitlisateur et fait l'action requise en fonction du 
 	 * mode de jeu en cours. Si "gameMode" est égal à 0, on considère que l'input
 	 * sert à choisir le mode de jeu, sinon il s'agit d'une coordonnée du joueur
 	 * pour placer le jeton. Ensuite on notifie la vue du changement d'état du jeu.
