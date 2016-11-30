@@ -12,7 +12,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-	
+	//Pour tester les sockets, d'abord lancer le Server puis le Client.
 	public static void main(String[] args) {
 		
 		Socket socketOfServer;

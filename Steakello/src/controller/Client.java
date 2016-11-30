@@ -13,7 +13,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class Client {
-	//private int numPort = 2869; num de port à définir
+	//private int numPort = 0; num de port à définir
+	//Pour tester les sockets, d'abord lancer le Server puis le Client.
 	Socket socket;
 	public static void main(String[] args) {
 		try {
