@@ -35,8 +35,8 @@ public class Chip {
 	}
 	
 	/**
-	 * Méthode isSet 
-	 * @return renvoie si le jeton est placée ou pas
+	 * Methode isSet 
+	 * @return renvoie si le jeton est plac� ou pas
 	 */
 	public boolean isSet() {
 		return set;
