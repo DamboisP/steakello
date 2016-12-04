@@ -32,17 +32,15 @@ public class GameViewConsole extends GameView{
 		else if(gameCore.getGameMode() == 2){
 			if(gameCore.serverOrClient == 1){
 				gameCore.server = new Server();
-				gameCore.server.waitForConnection();
 			}
 			else if(gameCore.serverOrClient == 2){
-				 gameCore.client = new Client();
-				try {
-					gameCore.client.connnectToServer(InetAddress.getLocalHost());
-					
+				 try {
+					gameCore.client = new Client(InetAddress.getLocalHost());
 				} catch (UnknownHostException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+
 			}
 		}
 		else{

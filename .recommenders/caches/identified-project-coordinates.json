@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-[[{"location":"C:\\Users\\Pierre\\Documents\\GitHub\\steakello\\Steakello","type":"PROJECT","hints":{"PROJECT_NAME":"Steakello"}},"ABSENT"],[{"location":"C:\\Program Files\\Java\\jre1.8.0_101","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"]]
-=======
-[[{"location":"C:\\Users\\Pierre\\Documents\\GitHub\\steakello\\Steakello","type":"PROJECT","hints":{"PROJECT_NAME":"Steakello"}},"ABSENT"]]
->>>>>>> refs/remotes/origin/master
+[[{"location":"C:\\Program Files\\Java\\jre1.8.0_101","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"],[{"location":"C:\\Users\\Pierre\\Documents\\GitHub\\steakello\\Steakello","type":"PROJECT","hints":{"PROJECT_NAME":"Steakello"}},"ABSENT"]]
