@@ -16,19 +16,28 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 
-public class Client {
+public class Client extends Thread{
 	//private int numPort = 0; num de port à définir
 	//Pour tester les sockets, d'abord lancer le Server puis le Client.
 	public Socket socket;
-	private int port = 64899;
-	public Client(InetAddress ipAddress) {
+	private int port;
+	private InetAddress ipAddress;
+	private boolean stopClient;
+	private Scanner scanner;
+	public Client(InetAddress ipAddress, int port) {
+		this.ipAddress = ipAddress;
+		scanner = new Scanner(System.in);
+		this.port = port;
+	}
+	
+	public void sendInput(int input){
 		try {
 			Socket socket = new Socket(ipAddress, port);
 			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-			System.out.println("Message");
-			System.out.println("END");
+			out.println(input);
 			in.close();
 			out.close();
 			socket.close();
@@ -38,6 +47,17 @@ public class Client {
 			e.printStackTrace();
 		}
 	}
+	
+	public void stopClient(){
+		this.stopClient=true;
+	}
+	public void run(){
+		while(!stopClient){
+			int input = scanner.nextInt();
+			sendInput(input);
+		}
+	}
+	
 
 
 }

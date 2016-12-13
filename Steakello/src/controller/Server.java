@@ -16,34 +16,54 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
+public class Server extends Thread {
 	//Pour tester les sockets, d'abord lancer le Server puis le Client.
-	public boolean connected = false;
-	private int port = 64899;
-	public Server() {
-		
-		Socket socket;
-		ServerSocket serverSocket;
-		try {
-		serverSocket = new ServerSocket(port);
-		socket = serverSocket.accept();
-		BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-		connected = true;
-		
-		while(true){
-			String input = in.readLine();
-			if(input.equals("END"))
-				break;
-			System.out.println(input);
-		}
 
-		in.close();
-		out.close();
-		socket.close();
+	public int port = 0;
+	private boolean stopServer;
+	private GameController controller;
+	
+	public Server(GameController controller) {
+		this.controller = controller;
+
+	}
+
+	public void stopServer(){
+		this.stopServer=true;
+	}
+	
+	public void run(){
+		Socket socket;
+		ServerSocket serverSocket = null;
+		try {
+			serverSocket = new ServerSocket(port);
+			this.port = serverSocket.getLocalPort();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+		while(!stopServer){
+			try {
+				socket = serverSocket.accept();
+				BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				PrintWriter out = new PrintWriter(
+						new BufferedWriter(
+								new OutputStreamWriter(socket.getOutputStream())), true);
+				String input = in.readLine();
+				controller.setInput(Integer.parseInt(input));
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+
+		}
+		try {
+			serverSocket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
+	
+	
 }

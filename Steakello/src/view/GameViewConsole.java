@@ -17,8 +17,6 @@ public class GameViewConsole extends GameView{
 
 	public GameViewConsole(GameCore gameCore, GameController controller) {
 		super(gameCore, controller);
-		scanner = new Scanner(System.in);
-		new Thread (new InputReader()).start();
 	}
 
 	@Override
@@ -31,15 +29,12 @@ public class GameViewConsole extends GameView{
 		}
 		else if(gameCore.getGameMode() == 2){
 			if(gameCore.serverOrClient == 1){
-				gameCore.server = new Server();
+				System.out.println("Vous serez le joueur 1");
+				System.out.println("En attente de connection...");
 			}
 			else if(gameCore.serverOrClient == 2){
-				 try {
-					gameCore.client = new Client(InetAddress.getLocalHost());
-				} catch (UnknownHostException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				System.out.println("Vous serez le joueur 2");
+				System.out.println("Veuillez entrer une IP valide pour vous connecter...");
 
 			}
 		}
@@ -79,13 +74,6 @@ public class GameViewConsole extends GameView{
 		
 	}
 	
-	private class InputReader implements Runnable{
-        public void run() {
-            while(true){
-                int input = scanner.nextInt();
-                controller.setInput(input);
-            }
-        }
-    }
+
 
 }
