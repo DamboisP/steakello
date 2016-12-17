@@ -64,8 +64,7 @@ public class Server extends Thread {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
-
+				
 		}
 		try {
 			serverSocket.close();
