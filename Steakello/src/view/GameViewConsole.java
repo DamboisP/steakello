@@ -32,13 +32,12 @@ public class GameViewConsole extends GameView{
 			if(gameCore.serverOrClient == 1){
 				System.out.println("Vous serez le joueur 1");
 				System.out.println("En attente de connexion...");
-				System.out.println("Le adresse locale est: "+ localAddress);
+				System.out.println("L'adresse locale est: "+ localAddress);
 				System.out.println("Le port est: "+ localPort);
 			}
 			else if(gameCore.serverOrClient == 2){
 				System.out.println("Vous serez le joueur 2");
 				System.out.println("Veuillez entrer une IP valide pour vous connecter...");
-
 			}
 		}
 		else{

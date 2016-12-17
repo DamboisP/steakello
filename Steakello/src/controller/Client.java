@@ -71,7 +71,7 @@ public class Client extends Thread{
 	public void run(){
 		while(!stopClient){
 			int input = scanner.nextInt();
-			sendInput(input);
+			sendInput(input);	
 		}
 	}
 }

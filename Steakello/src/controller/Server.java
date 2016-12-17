@@ -35,7 +35,6 @@ public class Server extends Thread {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	public void stopServer(){
@@ -61,8 +60,7 @@ public class Server extends Thread {
 						new BufferedWriter(
 								new OutputStreamWriter(socket.getOutputStream())), true);
 				String input = in.readLine();
-				controller.setInput(Integer.parseInt(input));
-				
+				controller.setInput(Integer.parseInt(input));				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
