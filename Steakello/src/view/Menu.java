@@ -1,8 +1,12 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -11,8 +15,14 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.UIManager;
 
 import controller.GameController;
 
@@ -74,9 +84,30 @@ public class Menu extends JPanel{
 		ActionListener ruleslistener = new ActionListener(){
 			 public void actionPerformed(ActionEvent e)
 			 {
-
-			     System.out.println(3);
-			     controller.setInput(3);
+				 JFrame frame = new JFrame("Rules");
+	             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	             try 
+	             {
+	                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+	             } catch (Exception e1) {
+	                e1.printStackTrace();
+	             }
+				 JPanel panel = new JPanel();
+	             panel.setLayout((LayoutManager) new BoxLayout(panel, BoxLayout.Y_AXIS));
+	             panel.setOpaque(true);
+	             JTextArea textArea = new JTextArea(35, 75);
+	             textArea.setWrapStyleWord(true);
+	             textArea.setEditable(false);
+	             textArea.setFont(Font.getFont(Font.SANS_SERIF));
+				 JScrollPane scroller = new JScrollPane(textArea);
+	             scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+	             scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+	             panel.add(scroller);
+	             frame.getContentPane().add(BorderLayout.CENTER, panel);
+	             frame.pack();
+	             frame.setLocationByPlatform(true);
+	             frame.setVisible(true);
+	             frame.setResizable(true);
 			 }
 		};
 		
