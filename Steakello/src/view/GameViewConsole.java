@@ -14,7 +14,8 @@ import model.GameCore;
 public class GameViewConsole extends GameView{
 
 	private Scanner scanner;
-
+	private int localPort;
+	private String localAddress;
 	public GameViewConsole(GameCore gameCore, GameController controller) {
 		super(gameCore, controller);
 	}
@@ -25,12 +26,14 @@ public class GameViewConsole extends GameView{
 			displayMenu();
 		}
 		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 0){
-			System.out.println("Voulez vous être serveur (1) ou client (2) ?");
+			System.out.println("Voulez-vous être serveur (1) ou client (2) ?");
 		}
 		else if(gameCore.getGameMode() == 2){
 			if(gameCore.serverOrClient == 1){
 				System.out.println("Vous serez le joueur 1");
-				System.out.println("En attente de connection...");
+				System.out.println("En attente de connexion...");
+				System.out.println("Le adresse locale est: "+ localAddress);
+				System.out.println("Le port est: "+ localPort);
 			}
 			else if(gameCore.serverOrClient == 2){
 				System.out.println("Vous serez le joueur 2");
@@ -73,7 +76,14 @@ public class GameViewConsole extends GameView{
 		}
 		
 	}
-	
 
+	public void setLocalPort(int port) {
+		this.localPort = port;
+	}
+
+	public void setLocalAddress(InetAddress localAddress) {
+		this.localAddress = localAddress.toString();
+		
+	}
 
 }

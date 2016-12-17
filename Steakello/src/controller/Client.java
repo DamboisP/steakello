@@ -26,23 +26,40 @@ public class Client extends Thread{
 	private InetAddress ipAddress;
 	private boolean stopClient;
 	private Scanner scanner;
-	public Client(InetAddress ipAddress, int port) {
-		this.ipAddress = ipAddress;
+	
+	public Client(InetAddress inetAddress, int port) {
+		this.ipAddress = inetAddress;
 		scanner = new Scanner(System.in);
 		this.port = port;
 	}
 	
+	public Client(String ipAddress, int port) {
+		try {
+			this.ipAddress = InetAddress.getByName(ipAddress);
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		scanner = new Scanner(System.in);
+		this.port = port;
+	}
+
 	public void sendInput(int input){
 		try {
-			Socket socket = new Socket(ipAddress, port);
+			System.out.println(port);
+			socket = new Socket(ipAddress, port);
 			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 			out.println(input);
 			in.close();
 			out.close();
-			socket.close();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			socket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -57,7 +74,4 @@ public class Client extends Thread{
 			sendInput(input);
 		}
 	}
-	
-
-
 }
