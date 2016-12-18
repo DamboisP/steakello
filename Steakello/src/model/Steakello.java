@@ -34,7 +34,8 @@ public class Steakello {
 		gameViewGUI.displayMenu();
 		
 		Server server = new Server(consoleController);
-		server.start();
+		Thread t = new Thread(server);
+		t.start();
 		Client client = null;
 		try {
 			while(!server.isPortSet){

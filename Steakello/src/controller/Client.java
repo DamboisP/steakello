@@ -53,13 +53,9 @@ public class Client extends Thread{
 			out.println(input);
 			in.close();
 			out.close();
+			socket.close();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			socket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

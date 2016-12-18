@@ -53,7 +53,7 @@ public class Server extends Thread {
 		Socket socket = null;
 		ServerSocket serverSocket = null;
 		try {
-			serverSocket = new ServerSocket(port);
+			serverSocket = new ServerSocket(port, 2);
 			this.port = serverSocket.getLocalPort();
 			isPortSet = true;
 		} catch (IOException e) {
@@ -80,6 +80,4 @@ public class Server extends Thread {
 			e.printStackTrace();
 		}
 	}
-	
-	
 }
