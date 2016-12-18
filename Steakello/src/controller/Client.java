@@ -44,7 +44,7 @@ public class Client extends Thread{
 		this.port = port;
 	}
 
-	public void sendInput(int input){
+	public void sendInput(String input){
 		try {
 			System.out.println(port);
 			socket = new Socket(ipAddress, port);
@@ -70,8 +70,8 @@ public class Client extends Thread{
 	}
 	public void run(){
 		while(!stopClient){
-			int input = scanner.nextInt();
-			sendInput(input);	
+			String input = scanner.next();
+			sendInput(input);
 		}
 	}
 }

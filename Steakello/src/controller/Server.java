@@ -21,7 +21,7 @@ import java.net.UnknownHostException;
 public class Server extends Thread {
 	//Pour tester les sockets, d'abord lancer le Server puis le Client.
 
-	public int port = 0;
+	private int port = 0;
 	private boolean stopServer;
 	private GameController controller;
 	public InetAddress localAddress;
@@ -36,6 +36,14 @@ public class Server extends Thread {
 			e.printStackTrace();
 		}
 	}
+	
+	public int getPort() {
+		return port;
+	}
+
+	/*public void setPort(int port) {
+		this.port = port;
+	}*/
 
 	public void stopServer(){
 		this.stopServer=true;

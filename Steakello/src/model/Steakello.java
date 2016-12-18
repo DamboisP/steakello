@@ -46,7 +46,7 @@ public class Steakello {
 				}
 			}
 			if(server.isPortSet){
-				client = new Client(InetAddress.getLocalHost(), server.port);
+				client = new Client(InetAddress.getLocalHost(), server.getPort());
 			}
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
@@ -54,7 +54,7 @@ public class Steakello {
 		client.start();
 		
 		gameViewConsole.setLocalAddress(server.localAddress);
-		gameViewConsole.setLocalPort(server.port);
+		gameViewConsole.setLocalPort(server.getPort());
 
 		
 	}
