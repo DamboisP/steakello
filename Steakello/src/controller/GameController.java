@@ -25,7 +25,7 @@ public class GameController {
 		else if(gameCore.getGameMode() == 2){
 			System.out.println(input +" test"); // test	
 			gameCore.userInput(input);
-			if(input != 2) {
+			if(input != 2 && input != 1) {
 			try {
 					// Convert from integer to an IPv4 address
 					InetAddress ipAddr = InetAddress.getByName(Integer.toString(input));
