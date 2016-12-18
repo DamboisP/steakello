@@ -1,12 +1,16 @@
 package controller;
 
+import java.net.InetAddress;
+
 import model.GameCore;
 import view.GameView;
+import controller.Client;
 
 public class GameController {
 
 	private GameCore gameCore;
 	private GameView gameView = null;
+	public Client client;
 	
 	public GameController(GameCore gameCore) {
 		this.gameCore = gameCore;
@@ -19,7 +23,19 @@ public class GameController {
 			}
 		}
 		else if(gameCore.getGameMode() == 2){
+			System.out.println(input +" test"); // test	
 			gameCore.userInput(input);
+			if(input != 2) {
+			try {
+					// Convert from integer to an IPv4 address
+					InetAddress ipAddr = InetAddress.getByName(Integer.toString(input));
+					String address = ipAddr.getHostAddress();
+					System.out.println(ipAddr);	
+					client.setIpAddress(ipAddr);
+					} catch (Exception e) {
+					    e.printStackTrace();
+					}
+			}
 		}
 		else if(gameCore.getGameMode() >= 1){
 			if(input >= 1 && input <= gameCore.getGameBoard().getSize()){

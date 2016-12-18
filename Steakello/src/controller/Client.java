@@ -2,13 +2,12 @@
  * 
  */
 package controller;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 /**
  * @author jb
  *
  */
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -33,6 +32,14 @@ public class Client extends Thread{
 		this.port = port;
 	}
 	
+	public InetAddress getIpAddress() {
+		return ipAddress;
+	}
+
+	public void setIpAddress(InetAddress ipAddress) {
+		this.ipAddress = ipAddress;
+	}
+
 	public Client(String ipAddress, int port) {
 		try {
 			this.ipAddress = InetAddress.getByName(ipAddress);
@@ -43,7 +50,7 @@ public class Client extends Thread{
 		scanner = new Scanner(System.in);
 		this.port = port;
 	}
-
+	
 	public void sendInput(String input){
 		try {
 			System.out.println(port);
@@ -54,13 +61,13 @@ public class Client extends Thread{
 			in.close();
 			out.close();
 			socket.close();
+			 System.out.println(ipAddress + " This is CLIENT");
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
+	} 
 	public void stopClient(){
 		this.stopClient=true;
 	}

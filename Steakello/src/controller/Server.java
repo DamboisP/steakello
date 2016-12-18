@@ -2,13 +2,13 @@
  * 
  */
 package controller;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 /**
  * @author jb
  *
  */
+import model.GameCore;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -17,6 +17,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.nio.ByteBuffer;
 
 public class Server extends Thread {
 	//Pour tester les sockets, d'abord lancer le Server puis le Client.
@@ -26,7 +27,9 @@ public class Server extends Thread {
 	private GameController controller;
 	public InetAddress localAddress;
 	public boolean isPortSet;
+	private GameCore gameCore;
 	
+
 	public Server(GameController controller) {
 		this.controller = controller;
 		try {
@@ -68,7 +71,19 @@ public class Server extends Thread {
 						new BufferedWriter(
 								new OutputStreamWriter(socket.getOutputStream())), true);
 				String input = in.readLine();
-				controller.setInput(Integer.parseInt(input));				
+				if (input == "1" || input == "2") {
+					controller.setInput(Integer.parseInt(input));
+				} else {
+					try {
+					    // Convert from an IPv4 address to an integer
+					    InetAddress ip = InetAddress.getByName(input);
+					    int value = ByteBuffer.wrap(ip.getAddress()).getInt();
+					    System.out.println("TOAST");
+					    controller.setInput(value);
+					} catch (Exception e) {
+					    e.printStackTrace();
+					}
+				}		
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
