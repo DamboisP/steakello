@@ -29,7 +29,7 @@ public class GameController {
 			try {
 					// Convert from integer to an IPv4 address
 					InetAddress ipAddr = InetAddress.getByName(Integer.toString(input));
-					String address = ipAddr.getHostAddress();
+					//String address = ipAddr.getHostAddress();
 					System.out.println(ipAddr);	
 					client.setIpAddress(ipAddr);
 					} catch (Exception e) {

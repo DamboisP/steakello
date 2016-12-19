@@ -37,7 +37,7 @@ public class GameViewConsole extends GameView{
 			}
 			else if(gameCore.serverOrClient == 2){
 				System.out.println("Vous serez le joueur 2");
-				System.out.println("Veuillez entrer une IP valide pour vous connecter...");
+				System.out.println("Veuillez entrer l'IP du serveur pour vous connecter...");
 			}
 		}
 		else{
