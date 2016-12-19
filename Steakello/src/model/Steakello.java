@@ -25,13 +25,13 @@ public class Steakello {
 		GameController GUIController = new GameController(gameCore);
 		
 		GameViewConsole gameViewConsole = new GameViewConsole(gameCore, consoleController);
-		GameViewGUI gameViewGUI = new GameViewGUI(gameCore, consoleController);
+		//GameViewGUI gameViewGUI = new GameViewGUI(gameCore, consoleController);
 		
 		consoleController.addView(gameViewConsole);
-		GUIController.addView(gameViewGUI);
+		//GUIController.addView(gameViewGUI);
 		
 		gameViewConsole.displayMenu();
-		gameViewGUI.displayMenu();
+		//gameViewGUI.displayMenu();
 		
 		Server server = new Server(consoleController);
 		Thread t = new Thread(server);

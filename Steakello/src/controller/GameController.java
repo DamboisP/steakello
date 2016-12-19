@@ -23,7 +23,6 @@ public class GameController {
 			}
 		}
 		else if(gameCore.getGameMode() == 2){
-			System.out.println(input +" test"); // test	
 			gameCore.userInput(input);
 			if(input != 2 && input != 1) {
 			try {
@@ -37,7 +36,7 @@ public class GameController {
 					}
 			}
 		}
-		else if(gameCore.getGameMode() >= 1){
+		else if(gameCore.getGameMode() == 1){
 			if(input >= 1 && input <= gameCore.getGameBoard().getSize()){
 				gameCore.userInput(input);
 			}
