@@ -22,6 +22,7 @@ import java.nio.ByteBuffer;
 public class Server extends Thread {
 	//Pour tester les sockets, d'abord lancer le Server puis le Client.
 
+	private static int port = 0;
 	private boolean stopServer;
 	private GameController controller;
 	public InetAddress localAddress;
