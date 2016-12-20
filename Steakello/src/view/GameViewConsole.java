@@ -34,7 +34,7 @@ public class GameViewConsole extends GameView{
 		}
 		
 		else if(gameCore.getGameMode() == 2){
-			if(gameCore.serverOrClient == 1){
+			if(gameCore.serverOrClient == 1 && !gameCore.server.connected){
 				while(!gameCore.server.isPortSet){
 					System.out.print(".");
 				}
@@ -52,7 +52,12 @@ public class GameViewConsole extends GameView{
 			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() != null && gameCore.client.port == 0){
 				System.out.println("Veuillez entrer le port du serveur: ");
 			}
-			
+			else if(gameCore.serverOrClient == 1 && gameCore.server.connected){
+				displayGame();
+			}
+			else if(gameCore.serverOrClient == 2 && gameCore.client.connected){
+				displayGame();
+			}
 		}
 		else{
 			displayGame();

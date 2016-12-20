@@ -28,27 +28,46 @@ public class GameController {
 		//Sinon..
 		else{
 			if(input != ""){
-				inputInt = Integer.parseInt(input);
-				if(gameCore.getGameMode() == 0){
-					if(inputInt >= 1 && inputInt <= 2){
+				try{
+					inputInt = Integer.parseInt(input);
+					if(gameCore.getGameMode() == 0){
+						if(inputInt >= 1 && inputInt <= 2){
+							gameCore.userInput(inputInt);
+						}
+					}
+					else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 0){
+						if(inputInt >= 1 && inputInt <= 2){
+							gameCore.userInput(inputInt);
+						}
+					}
+					else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() != null){
+						if(inputInt >= 1 && inputInt <= 66000){
+							gameCore.userInput(inputInt);
+						}
+					}
+					else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 1 && gameCore.server.connected){
+						if(gameCore.getGameBoard().getPlayer() == 1){
+							gameCore.server.sendInput(inputInt);
+						}
 						gameCore.userInput(inputInt);
 					}
-				}
-				else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 0){
-					if(inputInt >= 1 && inputInt <= 2){
+					else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 2 && gameCore.client.connected){
+						if(gameCore.getGameBoard().getPlayer() == 2){
+							gameCore.client.sendInput(inputInt);
+						}
+						System.out.println("toast");
 						gameCore.userInput(inputInt);
 					}
-				}
-				else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() != null){
-					if(inputInt >= 1 && inputInt <= 66000){
-						gameCore.userInput(inputInt);
+					else if(gameCore.getGameMode() == 1 || (gameCore.getGameMode() == 2 && ((gameCore.serverOrClient == 2 && gameCore.client.connected) || (gameCore.serverOrClient == 1 && gameCore.server.connected))) ){
+						if(inputInt >= 1 && inputInt <= gameCore.getGameBoard().getSize()){
+							gameCore.userInput(inputInt);
+						}
 					}
 				}
-				else if(gameCore.getGameMode() == 1){
-					if(inputInt >= 1 && inputInt <= gameCore.getGameBoard().getSize()){
-						gameCore.userInput(inputInt);
-					}
+				catch(NumberFormatException e){
+					
 				}
+				
 			}
 
 		}

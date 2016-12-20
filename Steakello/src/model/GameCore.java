@@ -41,12 +41,12 @@ public class GameCore extends Observable {
 			serverOrClient = input;
 			
 			if(serverOrClient == 1){
-				server = new Server();
+				server = new Server(this);
 				server.start();
 			}
 			else if(serverOrClient == 2){
 				askingForAddress = true;
-				client = new Client();
+				client = new Client(this);
 				client.start();
 			}
 		}

@@ -29,15 +29,9 @@ public class Server extends Thread {
 	public boolean isPortSet;
 	private GameCore gameCore;
 	public boolean connected;
-	
-	
-
-	public Server(GameController controller) {
-		this.controller = controller;
-	
-	}
-	
-	public Server() {
+	PrintWriter out = null;
+	public Server(GameCore gc) {
+		controller = new GameController(gc);
 		try {
 			this.localAddress = InetAddress.getLocalHost();
 		} catch (UnknownHostException e) {
@@ -64,7 +58,7 @@ public class Server extends Thread {
 		ServerSocket serverSocket = null;
 
 		BufferedReader in = null;
-		PrintWriter out = null;
+		
 		try {
 			serverSocket = new ServerSocket(port, 2);
 			port = serverSocket.getLocalPort();
@@ -77,18 +71,20 @@ public class Server extends Thread {
 		} catch (IOException e) {
 			e.printStackTrace();
 		};
+		connected = true;
+		sendInput(0);
 		while(!stopServer){
 
 				String input = null;
 				try {
 					input = in.readLine();
-					controller.setInput(input);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				if(input != null){
 					System.out.println(input);
+					controller.setInput(input);
 				}				
 		}
 		try {
@@ -97,4 +93,9 @@ public class Server extends Thread {
 			e.printStackTrace();
 		}
 	}
+	public void sendInput(int inputInt){
+		
+		out.println(inputInt);
+
+} 
 }

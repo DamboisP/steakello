@@ -17,6 +17,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
+import model.GameCore;
+
 public class Client extends Thread{
 	public Socket socket;
 	public int port = 0;
@@ -24,8 +26,12 @@ public class Client extends Thread{
 	private boolean stopClient;
 	public boolean ready;
 	public boolean connected;
-
+	private GameController controller;
+	PrintWriter out;
 	
+	public Client(GameCore gc){
+		controller = new GameController(gc);
+	}
 	
 	public InetAddress getIpAddress() {
 		return ipAddress;
@@ -48,39 +54,45 @@ public class Client extends Thread{
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Port et adresse:"+ ipAddress +" " + port);
+		
 		try {
 			socket = new Socket(ipAddress, port);
-			
-			sendInput("Hello server :)");
-			try {
-				sleep(500);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+			String input;
+			connected = true;
+			sendInput(0);
+			while(!stopClient){
+				input = in.readLine();
+				if(input != null){
+					System.out.println("ReceivedLine");
+					controller.setInput(Integer.parseInt(input));
+				}
+				try {
+					sleep(200);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
+			
+			in.close();
+			out.close();
 			socket.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
+
 	}
 	
 	
 
-	public void sendInput(String input){
-		try {
-			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-			out.println(input);
-			in.close();
-			out.close();
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void sendInput(int inputInt){
+			
+			out.println(inputInt);
+
 	} 
 	public void stopClient(){
 		this.stopClient=true;
