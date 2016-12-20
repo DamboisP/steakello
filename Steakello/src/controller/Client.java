@@ -18,50 +18,64 @@ import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class Client extends Thread{
-	//private int numPort = 0; num de port à définir
-	//Pour tester les sockets, d'abord lancer le Server puis le Client.
 	public Socket socket;
-	private int port;
-	private InetAddress ipAddress;
+	public int port = 0;
+	private InetAddress ipAddress = null;
 	private boolean stopClient;
-	private Scanner scanner;
+	public boolean ready;
+	public boolean connected;
+
 	
-	public Client(InetAddress inetAddress, int port) {
-		this.ipAddress = inetAddress;
-		scanner = new Scanner(System.in);
-		this.port = port;
-	}
 	
 	public InetAddress getIpAddress() {
 		return ipAddress;
 	}
 
-	public void setIpAddress(InetAddress ipAddress) {
-		this.ipAddress = ipAddress;
-	}
-
-	public Client(String ipAddress, int port) {
+	public void setIpAddress(String host) {
 		try {
-			this.ipAddress = InetAddress.getByName(ipAddress);
+			this.ipAddress = InetAddress.getByName(host);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		scanner = new Scanner(System.in);
-		this.port = port;
+		} 
 	}
 	
+	public void run(){
+		while(!this.ready){
+			try {
+				sleep(200);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("Port et adresse:"+ ipAddress +" " + port);
+		try {
+			socket = new Socket(ipAddress, port);
+			
+			sendInput("Hello server :)");
+			try {
+				sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			socket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+
 	public void sendInput(String input){
 		try {
-			System.out.println(port);
-			socket = new Socket(ipAddress, port);
 			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 			out.println(input);
 			in.close();
 			out.close();
-			socket.close();
-			 System.out.println(ipAddress + " This is CLIENT");
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -71,10 +85,5 @@ public class Client extends Thread{
 	public void stopClient(){
 		this.stopClient=true;
 	}
-	public void run(){
-		while(!stopClient){
-			String input = scanner.next();
-			sendInput(input);
-		}
-	}
+
 }

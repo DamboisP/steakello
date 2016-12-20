@@ -9,42 +9,61 @@ import controller.Client;
 public class GameController {
 
 	private GameCore gameCore;
-	private GameView gameView = null;
+	private GameView gameView;
 	public Client client;
 	
 	public GameController(GameCore gameCore) {
 		this.gameCore = gameCore;
 	}
 
-	public void setInput(int input) {
-		if(gameCore.getGameMode() == 0){
-			if(input >= 1 && input <= 2){
-				gameCore.userInput(input);
-			}
-		}
-		else if(gameCore.getGameMode() == 2){
+	public void setInput(String input) {
+		int inputInt;
+		/*
+		 * Si on est en train de demander l'adresse IP du serveur
+		 * l'entrée n'est exceptionnellement pas convertie en entier
+		*/
+		if(gameCore.askingForAddress){
 			gameCore.userInput(input);
-			if(input != 2 && input != 1) {
-			try {
-					// Convert from integer to an IPv4 address
-					InetAddress ipAddr = InetAddress.getByName(Integer.toString(input));
-					//String address = ipAddr.getHostAddress();
-					System.out.println(ipAddr);	
-					client.setIpAddress(ipAddr);
-					} catch (Exception e) {
-					    e.printStackTrace();
+		}
+		//Sinon..
+		else{
+			if(input != ""){
+				inputInt = Integer.parseInt(input);
+				if(gameCore.getGameMode() == 0){
+					if(inputInt >= 1 && inputInt <= 2){
+						gameCore.userInput(inputInt);
 					}
+				}
+				else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 0){
+					if(inputInt >= 1 && inputInt <= 2){
+						gameCore.userInput(inputInt);
+					}
+				}
+				else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() != null){
+					if(inputInt >= 1 && inputInt <= 66000){
+						gameCore.userInput(inputInt);
+					}
+				}
+				else if(gameCore.getGameMode() == 1){
+					if(inputInt >= 1 && inputInt <= gameCore.getGameBoard().getSize()){
+						gameCore.userInput(inputInt);
+					}
+				}
 			}
+
 		}
-		else if(gameCore.getGameMode() == 1){
-			if(input >= 1 && input <= gameCore.getGameBoard().getSize()){
-				gameCore.userInput(input);
-			}
-		}
+
 	}
 	
 	public void addView(GameView view){
 		this.gameView = view;
+	}
+
+	public void setInput(int inputInt) {
+		if(inputInt >= 1 && inputInt <= gameCore.getGameBoard().getSize()){
+			gameCore.userInput(inputInt);
+		}
+		
 	}
 
 }

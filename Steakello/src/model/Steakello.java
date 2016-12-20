@@ -32,30 +32,6 @@ public class Steakello {
 		
 		gameViewConsole.displayMenu();
 		//gameViewGUI.displayMenu();
-		
-		Server server = new Server(consoleController);
-		Thread t = new Thread(server);
-		t.start();
-		Client client = null;
-		try {
-			while(!server.isPortSet){
-				try {
-					client.sleep(200);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			if(server.isPortSet){
-				client = new Client(InetAddress.getLocalHost(), server.getPort());
-			}
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		}
-		client.start();
-		
-		gameViewConsole.setLocalAddress(server.localAddress);
-		gameViewConsole.setLocalPort(server.getPort());
 
 		
 	}
