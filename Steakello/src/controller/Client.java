@@ -61,12 +61,14 @@ public class Client extends Thread{
 			out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 			String input;
 			connected = true;
-			sendInput(0);
+			controller.getGameCore().refreshView();
+			controller.getGameCore().gameStarted = true;
 			while(!stopClient){
 				input = in.readLine();
 				if(input != null){
-					System.out.println("ReceivedLine");
-					controller.setInput(Integer.parseInt(input));
+					if(controller.getGameCore().getGameBoard().getPlayer() == 1){
+						controller.setInput(input);
+					}
 				}
 				try {
 					sleep(200);

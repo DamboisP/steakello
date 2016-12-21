@@ -15,7 +15,20 @@ public class InputThread extends Thread {
 	public void run(){
 		while(!stopThread){
 			if(scanner.hasNextLine()){
-				controller.setInput(scanner.nextLine());
+				if(controller.getGameCore().getGameMode() != 2){
+					controller.setInput(scanner.nextLine());
+				}
+				else if(controller.getGameCore().getGameMode() == 2){
+					if(controller.getGameCore().gameStarted){
+						if(controller.getGameCore().serverOrClient == controller.getGameCore().getGameBoard().getPlayer()){
+							controller.setInput(scanner.nextLine());
+						}
+					}
+					else{
+						controller.setInput(scanner.nextLine());
+					}
+				}
+
 			}
 		}
 	}

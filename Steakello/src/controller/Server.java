@@ -72,7 +72,8 @@ public class Server extends Thread {
 			e.printStackTrace();
 		};
 		connected = true;
-		sendInput(0);
+		controller.getGameCore().refreshView();
+		controller.getGameCore().gameStarted = true;
 		while(!stopServer){
 
 				String input = null;
@@ -84,7 +85,9 @@ public class Server extends Thread {
 				}
 				if(input != null){
 					System.out.println(input);
-					controller.setInput(input);
+					if(controller.getGameCore().getGameBoard().getPlayer() == 2){
+						controller.setInput(input);
+					}
 				}				
 		}
 		try {

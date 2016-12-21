@@ -13,7 +13,7 @@ public class GameController {
 	public Client client;
 	
 	public GameController(GameCore gameCore) {
-		this.gameCore = gameCore;
+		this.setGameCore(gameCore);
 	}
 
 	public void setInput(String input) {
@@ -22,45 +22,48 @@ public class GameController {
 		 * Si on est en train de demander l'adresse IP du serveur
 		 * l'entrée n'est exceptionnellement pas convertie en entier
 		*/
-		if(gameCore.askingForAddress){
-			gameCore.userInput(input);
+		if(getGameCore().askingForAddress){
+			getGameCore().userInput(input);
 		}
+
 		//Sinon..
 		else{
+
 			if(input != ""){
 				try{
 					inputInt = Integer.parseInt(input);
-					if(gameCore.getGameMode() == 0){
+					if(getGameCore().getGameMode() == 0){
 						if(inputInt >= 1 && inputInt <= 2){
-							gameCore.userInput(inputInt);
+							getGameCore().userInput(inputInt);
 						}
 					}
-					else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 0){
+					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 0){
 						if(inputInt >= 1 && inputInt <= 2){
-							gameCore.userInput(inputInt);
+							getGameCore().userInput(inputInt);
 						}
 					}
-					else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() != null){
+					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 2 && getGameCore().client.getIpAddress() != null && getGameCore().client.port == 0){
 						if(inputInt >= 1 && inputInt <= 66000){
-							gameCore.userInput(inputInt);
+							getGameCore().userInput(inputInt);
 						}
 					}
-					else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 1 && gameCore.server.connected){
-						if(gameCore.getGameBoard().getPlayer() == 1){
-							gameCore.server.sendInput(inputInt);
+					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 1 && getGameCore().server.connected){
+						if(getGameCore().getGameBoard().getPlayer() == 1){
+							getGameCore().server.sendInput(inputInt);
+							
 						}
-						gameCore.userInput(inputInt);
+						getGameCore().userInput(inputInt);
 					}
-					else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 2 && gameCore.client.connected){
-						if(gameCore.getGameBoard().getPlayer() == 2){
-							gameCore.client.sendInput(inputInt);
+					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 2 && getGameCore().client.connected){
+						if(getGameCore().getGameBoard().getPlayer() == 2){
+							getGameCore().client.sendInput(inputInt);
 						}
-						System.out.println("toast");
-						gameCore.userInput(inputInt);
+						getGameCore().userInput(inputInt);
+						
 					}
-					else if(gameCore.getGameMode() == 1 || (gameCore.getGameMode() == 2 && ((gameCore.serverOrClient == 2 && gameCore.client.connected) || (gameCore.serverOrClient == 1 && gameCore.server.connected))) ){
-						if(inputInt >= 1 && inputInt <= gameCore.getGameBoard().getSize()){
-							gameCore.userInput(inputInt);
+					else if(getGameCore().getGameMode() == 1 || (getGameCore().getGameMode() == 2 && ((getGameCore().serverOrClient == 2 && getGameCore().client.connected) || (getGameCore().serverOrClient == 1 && getGameCore().server.connected))) ){
+						if(inputInt >= 1 && inputInt <= getGameCore().getGameBoard().getSize()){
+							getGameCore().userInput(inputInt);
 						}
 					}
 				}
@@ -79,10 +82,18 @@ public class GameController {
 	}
 
 	public void setInput(int inputInt) {
-		if(inputInt >= 1 && inputInt <= gameCore.getGameBoard().getSize()){
-			gameCore.userInput(inputInt);
+		if(inputInt >= 1 && inputInt <= getGameCore().getGameBoard().getSize()){
+			getGameCore().userInput(inputInt);
 		}
 		
+	}
+
+	public GameCore getGameCore() {
+		return gameCore;
+	}
+
+	public void setGameCore(GameCore gameCore) {
+		this.gameCore = gameCore;
 	}
 
 }

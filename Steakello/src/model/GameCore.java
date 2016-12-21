@@ -23,6 +23,7 @@ public class GameCore extends Observable {
 	public Server server;
 	public Client client;
 	public boolean askingForAddress;
+	public boolean gameStarted;
 	public int serverOrClient = 0;
 	
 	/**
@@ -51,7 +52,7 @@ public class GameCore extends Observable {
 			}
 		}
 		
-		else if(gameMode == 2 && serverOrClient == 2 && client.getIpAddress() != null){
+		else if(gameMode == 2 && serverOrClient == 2 && client.getIpAddress() != null && client.port == 0){
 			client.port = input;
 			client.ready = true;
 		}
@@ -59,16 +60,15 @@ public class GameCore extends Observable {
 			gameBoard.setCoords(input-1);
 		}
 
-		setChanged();
-		notifyObservers();
+		refreshView();
 		
 	}
 	
 	public void userInput(String input){
 		client.setIpAddress(input);
 		askingForAddress = false;
-		setChanged();
-		notifyObservers();
+
+		refreshView();
 	}
 
 	public GameBoard getGameBoard() {
@@ -87,7 +87,10 @@ public class GameCore extends Observable {
 		this.gameMode = gameMode;
 	}
 
-	
+	public void refreshView(){
+		setChanged();
+		notifyObservers();
+	}
 
 	
 }
