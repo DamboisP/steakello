@@ -65,7 +65,7 @@ public class Client extends Thread{
 			while(!stopClient){
 				input = in.readLine();
 				if(input != null){
-					System.out.println("ReceivedLine");
+					System.out.println("ReceivedLine: "+input);
 					controller.setInput(Integer.parseInt(input));
 				}
 				try {

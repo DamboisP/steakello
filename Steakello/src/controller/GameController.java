@@ -22,12 +22,17 @@ public class GameController {
 		 * Si on est en train de demander l'adresse IP du serveur
 		 * l'entrée n'est exceptionnellement pas convertie en entier
 		*/
+		System.out.println("Input: " + input);
 		if(gameCore.askingForAddress){
 			gameCore.userInput(input);
 		}
+
 		//Sinon..
 		else{
+
+			System.out.println("toastesbis");
 			if(input != ""){
+				System.out.println("toastes");
 				try{
 					inputInt = Integer.parseInt(input);
 					if(gameCore.getGameMode() == 0){
