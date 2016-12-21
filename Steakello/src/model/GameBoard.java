@@ -93,7 +93,7 @@ public class GameBoard {
 	 * passe ensuite le tour  et donne la main au joueur adverse
 	 */
 	public void setCoords(int input) {
-		if(isFull()){
+		if(isFull() || (!checkForMoves(1) && !checkForMoves(2) )){
 			if(score()[0] > score()[1]){
 				System.out.println("Player 1 wins");
 			}else{
@@ -119,11 +119,38 @@ public class GameBoard {
 	 * Donne la main au joueur adverse quand le tour se termine
 	 */
 	public void switchPlayer() {
+
 		if(player == 1){
-			player = 2;
+			if(checkForMoves(2)){
+				player = 2;
+			}
+			
 		}
 		else if(player == 2){
-			player = 1;
+			if(checkForMoves(1)){
+				player = 1;
+			}
+		}
+
+		
+
+		
+	}
+	
+	public boolean checkForMoves(int player){
+		int moves = 0;
+		for(int i = 0; i < size; i++){
+			for(int j = 0; j < size; j++){
+				 if(chipPlacer.checkPlacementValidity(chipArray, i, j, player)){
+					 moves++;
+				 }
+			}
+		}
+		if(moves > 0){
+			return true;
+		}
+		else{
+			return false;
 		}
 		
 	}

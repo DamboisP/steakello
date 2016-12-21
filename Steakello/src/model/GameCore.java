@@ -1,5 +1,8 @@
 package model;
 
+import java.net.InetAddress;
+import java.nio.ByteBuffer;
+
 /**
  * @author Pierre Dambois
  * Groupe 8
@@ -8,13 +11,23 @@ package model;
 
 import java.util.Observable;
 
-public class GameCore extends Observable{
+import controller.Client;
+import controller.Server;
+
+public class GameCore extends Observable {
 
 	private GameBoard gameBoard;
 	private int gameMode = 0;
 
+	
+	public Server server;
+	public Client client;
+	public boolean askingForAddress;
+	public boolean gameStarted;
+	public int serverOrClient = 0;
+	
 	/**
-	 * Traite les inputs de l'utitlisateur et fais l'action requise en fonction du 
+	 * Traite les inputs de l'utitlisateur et fait l'action requise en fonction du 
 	 * mode de jeu en cours. Si "gameMode" est égal à 0, on considère que l'input
 	 * sert à choisir le mode de jeu, sinon il s'agit d'une coordonnée du joueur
 	 * pour placer le jeton. Ensuite on notifie la vue du changement d'état du jeu.
@@ -25,12 +38,37 @@ public class GameCore extends Observable{
 			gameMode = input;
 			gameBoard = new GameBoard();
 		}
+		else if(gameMode == 2 && serverOrClient == 0){
+			serverOrClient = input;
+			
+			if(serverOrClient == 1){
+				server = new Server(this);
+				server.start();
+			}
+			else if(serverOrClient == 2){
+				askingForAddress = true;
+				client = new Client(this);
+				client.start();
+			}
+		}
+		
+		else if(gameMode == 2 && serverOrClient == 2 && client.getIpAddress() != null && client.port == 0){
+			client.port = input;
+			client.ready = true;
+		}
 		else if(gameMode >= 1){
 			gameBoard.setCoords(input-1);
 		}
-		setChanged();
-		notifyObservers();
+
+		refreshView();
 		
+	}
+	
+	public void userInput(String input){
+		client.setIpAddress(input);
+		askingForAddress = false;
+
+		refreshView();
 	}
 
 	public GameBoard getGameBoard() {
@@ -49,7 +87,10 @@ public class GameCore extends Observable{
 		this.gameMode = gameMode;
 	}
 
-	
+	public void refreshView(){
+		setChanged();
+		notifyObservers();
+	}
 
 	
 }

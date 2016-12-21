@@ -1,26 +1,63 @@
 package view;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Observable;
 import java.util.Scanner;
 
+import controller.Client;
 import controller.GameController;
+import controller.Server;
 import model.Chip;
 import model.GameCore;
 
 public class GameViewConsole extends GameView{
 
-	private Scanner scanner;
+	private int localPort;
+	private String localAddress;
+	private InputThread inputThread;
 	
 	public GameViewConsole(GameCore gameCore, GameController controller) {
 		super(gameCore, controller);
-		scanner = new Scanner(System.in);
-		new Thread (new InputReader()).start();
+		inputThread = new InputThread(controller);
+		inputThread.start();
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		if(gameCore.getGameMode() == 0){
 			displayMenu();
+		}
+		
+		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 0){
+			System.out.println("Voulez-vous être serveur (1) ou client (2) ?");
+		}
+		
+		else if(gameCore.getGameMode() == 2){
+			if(gameCore.serverOrClient == 1 && !gameCore.server.connected){
+				while(!gameCore.server.isPortSet){
+					System.out.print(".");
+				}
+				System.out.println("");
+				System.out.println("Vous serez le joueur 1");
+				System.out.println("L'adresse locale est: "+ gameCore.server.localAddress);
+				System.out.println("Le port est: "+ gameCore.server.getPort());
+				System.out.println("En attente de connexion...");
+			}
+			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() == null){
+				System.out.println("Vous serez le joueur 2");
+				System.out.println("Veuillez entrer l'IP du serveur pour vous connecter: ");
+			}
+			
+			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() != null && gameCore.client.port == 0){
+				System.out.println("Veuillez entrer le port du serveur: ");
+			}
+			else if(gameCore.serverOrClient == 1 && gameCore.server.connected){
+				displayGame();
+			}
+			else if(gameCore.serverOrClient == 2 && gameCore.client.connected){
+				displayGame();
+			}
 		}
 		else{
 			displayGame();
@@ -57,14 +94,14 @@ public class GameViewConsole extends GameView{
 		}
 		
 	}
-	
-	private class InputReader implements Runnable{
-        public void run() {
-            while(true){
-                int input = scanner.nextInt();
-                controller.setInput(input);
-            }
-        }
-    }
+
+	public void setLocalPort(int port) {
+		this.localPort = port;
+	}
+
+	public void setLocalAddress(InetAddress localAddress) {
+		this.localAddress = localAddress.toString();
+		
+	}
 
 }

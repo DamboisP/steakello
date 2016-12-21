@@ -1,11 +1,17 @@
 package model;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+import controller.Client;
+
 /**
  * Groupe 8
  * 2TL1
  */
 
 import controller.GameController;
+import controller.Server;
 import view.GameViewConsole;
 import view.GameViewGUI;
 
@@ -26,6 +32,7 @@ public class Steakello {
 		
 		gameViewConsole.displayMenu();
 		gameViewGUI.displayMenu();
+
 		
 	}
 
