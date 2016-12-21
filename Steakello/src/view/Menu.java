@@ -12,15 +12,20 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 
 import controller.GameController;
+import controller.Server;
+import view.Online2P;
 
 public class Menu extends JPanel{
 
@@ -72,9 +77,9 @@ public class Menu extends JPanel{
 		ActionListener online2plistener = new ActionListener(){
 		    public void actionPerformed(ActionEvent e)
 		    {
-
-		        System.out.println(2);
-		        controller.setInput(2);
+		    	System.out.println(2);
+		        //  controller.setInput(2);
+		      
 		    }
 		};
 		ActionListener ruleslistener = new ActionListener(){
