@@ -13,11 +13,14 @@ import model.GameCore;
 
 public class GameViewConsole extends GameView{
 
-	private Scanner scanner;
 	private int localPort;
 	private String localAddress;
+	private InputThread inputThread;
+	
 	public GameViewConsole(GameCore gameCore, GameController controller) {
 		super(gameCore, controller);
+		inputThread = new InputThread(controller);
+		inputThread.start();
 	}
 
 	@Override
@@ -25,19 +28,35 @@ public class GameViewConsole extends GameView{
 		if(gameCore.getGameMode() == 0){
 			displayMenu();
 		}
+		
 		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 0){
 			System.out.println("Voulez-vous être serveur (1) ou client (2) ?");
 		}
+		
 		else if(gameCore.getGameMode() == 2){
-			if(gameCore.serverOrClient == 1){
+			if(gameCore.serverOrClient == 1 && !gameCore.server.connected){
+				while(!gameCore.server.isPortSet){
+					System.out.print(".");
+				}
+				System.out.println("");
 				System.out.println("Vous serez le joueur 1");
+				System.out.println("L'adresse locale est: "+ gameCore.server.localAddress);
+				System.out.println("Le port est: "+ gameCore.server.getPort());
 				System.out.println("En attente de connexion...");
-				System.out.println("L'adresse locale est: "+ localAddress);
-				System.out.println("Le port est: "+ localPort);
 			}
-			else if(gameCore.serverOrClient == 2){
+			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() == null){
 				System.out.println("Vous serez le joueur 2");
-				System.out.println("Veuillez entrer l'IP du serveur pour vous connecter...");
+				System.out.println("Veuillez entrer l'IP du serveur pour vous connecter: ");
+			}
+			
+			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() != null && gameCore.client.port == 0){
+				System.out.println("Veuillez entrer le port du serveur: ");
+			}
+			else if(gameCore.serverOrClient == 1 && gameCore.server.connected){
+				displayGame();
+			}
+			else if(gameCore.serverOrClient == 2 && gameCore.client.connected){
+				displayGame();
 			}
 		}
 		else{

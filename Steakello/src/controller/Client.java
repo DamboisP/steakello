@@ -17,64 +17,87 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
+import model.GameCore;
+
 public class Client extends Thread{
-	//private int numPort = 0; num de port à définir
-	//Pour tester les sockets, d'abord lancer le Server puis le Client.
 	public Socket socket;
-	private int port;
-	private InetAddress ipAddress;
+	public int port = 0;
+	private InetAddress ipAddress = null;
 	private boolean stopClient;
-	private Scanner scanner;
+	public boolean ready;
+	public boolean connected;
+	private GameController controller;
+	PrintWriter out;
 	
-	public Client(InetAddress inetAddress, int port) {
-		this.ipAddress = inetAddress;
-		scanner = new Scanner(System.in);
-		this.port = port;
+	public Client(GameCore gc){
+		controller = new GameController(gc);
 	}
 	
 	public InetAddress getIpAddress() {
 		return ipAddress;
 	}
 
-	public void setIpAddress(InetAddress ipAddress) {
-		this.ipAddress = ipAddress;
-	}
-
-	public Client(String ipAddress, int port) {
+	public void setIpAddress(String host) {
 		try {
-			this.ipAddress = InetAddress.getByName(ipAddress);
+			this.ipAddress = InetAddress.getByName(host);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		scanner = new Scanner(System.in);
-		this.port = port;
+		} 
 	}
 	
-	public void sendInput(String input){
+	public void run(){
+		while(!this.ready){
+			try {
+				sleep(200);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		try {
-			System.out.println(port);
 			socket = new Socket(ipAddress, port);
 			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-			out.println(input);
+			out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+			String input;
+			connected = true;
+			controller.getGameCore().refreshView();
+			controller.getGameCore().gameStarted = true;
+			while(!stopClient){
+				input = in.readLine();
+				if(input != null){
+					if(controller.getGameCore().getGameBoard().getPlayer() == 1){
+						controller.setInput(input);
+					}
+				}
+				try {
+					sleep(200);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
 			in.close();
 			out.close();
 			socket.close();
-			 System.out.println(ipAddress + " This is CLIENT");
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+
+	}
+	
+	
+
+	public void sendInput(int inputInt){
+			
+			out.println(inputInt);
+
 	} 
 	public void stopClient(){
 		this.stopClient=true;
 	}
-	public void run(){
-		while(!stopClient){
-			String input = scanner.next();
-			sendInput(input);
-		}
-	}
+
 }

@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -10,13 +11,20 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 
 import controller.GameController;
+import controller.Server;
 
 public class Menu extends JPanel{
 
@@ -68,24 +76,34 @@ public class Menu extends JPanel{
 		ActionListener online2plistener = new ActionListener(){
 		    public void actionPerformed(ActionEvent e)
 		    {
-
-		        System.out.println(2);
-		        controller.setInput(2);
+		    	System.out.println(2);
+		        //  controller.setInput(2);
+		      
 		    }
 		};
 		ActionListener ruleslistener = new ActionListener(){
 			 public void actionPerformed(ActionEvent e)
 			 {
 				 JFrame frame = new JFrame("Rules");
-				 frame.setSize(400, 150);
+				 JPanel panel =new JPanel(); //Panel
+				 JPanel p1 = new JPanel();
+				 JPanel newPanel = new JPanel();
+				 newPanel.add(p1);
+				 frame.setSize(500, 400);
 	             frame.setLocationRelativeTo(null);
-	             frame.setResizable(true);
-	             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-	             JPanel panel =new JPanel(); //Panel
-	             FlowLayout fl = new FlowLayout(FlowLayout.CENTER);   //layoutManager
-	             panel.setLayout(fl);    //lie le layoutManager au panel  
-	             JLabel  label =new JLabel("Les règles ! SOON!");  //créer un label
-	             panel.add(label);  //l'ajoute au panel
+	             frame.setResizable(false);
+	             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  
+	             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+	             JScrollPane scrollPanel = new JScrollPane(newPanel, 
+	            		 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+	            		 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+	             panel.add(scrollPanel);  
+	             FlowLayout fl = new FlowLayout(FlowLayout.CENTER);
+	             p1.setLayout(fl);
+	             JLabel label =new JLabel();  //créer un label
+	             ImageIcon icon = new ImageIcon("src/images/Steakello_Rules.PNG"); 
+	             label.setIcon(icon);
+	             p1.add(label);  //l'ajoute au panel
 	             frame.setContentPane(panel);  //defini le panel de la JFrame
 	             frame.setVisible(true); //affiche la JFrame
 			 }
