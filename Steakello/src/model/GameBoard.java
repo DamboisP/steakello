@@ -99,7 +99,7 @@ public class GameBoard {
 			}else{
 				System.out.println("Player 2 wins");
 			}
-		}
+		} 
 		else if(x == -1){
 			x = input;
 		}
