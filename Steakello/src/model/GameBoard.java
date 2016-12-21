@@ -99,7 +99,12 @@ public class GameBoard {
 			}else{
 				System.out.println("Player 2 wins");
 			}
+<<<<<<< HEAD
+		} 
+=======
 		}
+		
+>>>>>>> origin/Sockets-fonctionnels-GUI
 		else if(x == -1){
 			x = input;
 		}
