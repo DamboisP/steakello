@@ -25,7 +25,6 @@ import javax.swing.JTextField;
 
 import controller.GameController;
 import controller.Server;
-import view.Online2P;
 
 public class Menu extends JPanel{
 
