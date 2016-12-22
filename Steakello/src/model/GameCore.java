@@ -52,9 +52,9 @@ public class GameCore extends Observable {
 			}
 		}
 		
-		else if(gameMode == 2 && serverOrClient == 2 && client.getIpAddress() != null && client.port == 0){
-			client.port = input;
-			client.ready = true;
+		else if(gameMode == 2 && serverOrClient == 2 && client.getIpAddress() != null && client.getPort() == 0){
+			client.setPort(input);
+			client.setReady(true);
 		}
 		else if(gameMode >= 1){
 			gameBoard.setCoords(input-1);

@@ -6,16 +6,16 @@ import model.GameCore;
 import view.GameView;
 import controller.Client;
 
+
 public class GameController {
 
 	private GameCore gameCore;
 	private GameView gameView;
-	public Client client;
 	
 	public GameController(GameCore gameCore) {
 		this.setGameCore(gameCore);
 	}
-
+	
 	public void setInput(String input) {
 		int inputInt;
 		/*
@@ -42,26 +42,26 @@ public class GameController {
 							getGameCore().userInput(inputInt);
 						}
 					}
-					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 2 && getGameCore().client.getIpAddress() != null && getGameCore().client.port == 0){
+					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 2 && getGameCore().client.getIpAddress() != null && getGameCore().client.getPort() == 0){
 						if(inputInt >= 1 && inputInt <= 66000){
 							getGameCore().userInput(inputInt);
 						}
 					}
-					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 1 && getGameCore().server.connected){
+					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 1 && getGameCore().server.getConnected()){
 						if(getGameCore().getGameBoard().getPlayer() == 1){
 							getGameCore().server.sendInput(inputInt);
 							
 						}
 						getGameCore().userInput(inputInt);
 					}
-					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 2 && getGameCore().client.connected){
+					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 2 && getGameCore().client.getConnected()){
 						if(getGameCore().getGameBoard().getPlayer() == 2){
 							getGameCore().client.sendInput(inputInt);
 						}
 						getGameCore().userInput(inputInt);
 						
 					}
-					else if(getGameCore().getGameMode() == 1 || (getGameCore().getGameMode() == 2 && ((getGameCore().serverOrClient == 2 && getGameCore().client.connected) || (getGameCore().serverOrClient == 1 && getGameCore().server.connected))) ){
+					else if(getGameCore().getGameMode() == 1 || (getGameCore().getGameMode() == 2 && ((getGameCore().serverOrClient == 2 && getGameCore().client.getConnected()) || (getGameCore().serverOrClient == 1 && getGameCore().server.getConnected()))) ){
 						if(inputInt >= 1 && inputInt <= getGameCore().getGameBoard().getSize()){
 							getGameCore().userInput(inputInt);
 						}

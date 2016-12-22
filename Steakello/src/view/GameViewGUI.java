@@ -42,14 +42,14 @@ public class GameViewGUI extends GameView {
 				srvOrClientDialog = new ServerOrClientDialog(controller);
 			}
 		}
-		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 2 && gameCore.client.connected){
+		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 2 && gameCore.client.getConnected()){
 			menu.setVisible(false);
 			srvOrClientDialog.close();
 			window.add(gameBoardView);
 			gameBoardView.setGameBoard(gameCore.getGameBoard());
 			gameBoardView.repaint();
 		}
-		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 1 && gameCore.server.connected){
+		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 1 && gameCore.server.getConnected()){
 			menu.setVisible(false);
 			srvOrClientDialog.close();
 			window.add(gameBoardView);

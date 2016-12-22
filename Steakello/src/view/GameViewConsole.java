@@ -34,13 +34,13 @@ public class GameViewConsole extends GameView{
 		}
 		
 		else if(gameCore.getGameMode() == 2){
-			if(gameCore.serverOrClient == 1 && !gameCore.server.connected){
-				while(!gameCore.server.isPortSet){
+			if(gameCore.serverOrClient == 1 && !gameCore.server.getConnected()){
+				while(!gameCore.server.getIsPortSet()){
 					System.out.print(".");
 				}
 				System.out.println("");
 				System.out.println("Vous serez le joueur 1 (Steaks Crus)");
-				System.out.println("L'adresse locale est: "+ gameCore.server.localAddress);
+				System.out.println("L'adresse locale est: "+ gameCore.server.getLocalAddress());
 				System.out.println("Le port est: "+ gameCore.server.getPort());
 				System.out.println("En attente de connexion...");
 			}
@@ -49,13 +49,13 @@ public class GameViewConsole extends GameView{
 				System.out.println("Veuillez entrer l'IP du serveur pour vous connecter: ");
 			}
 			
-			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() != null && gameCore.client.port == 0){
+			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() != null && gameCore.client.getPort() == 0){
 				System.out.println("Veuillez entrer le port du serveur: ");
 			}
-			else if(gameCore.serverOrClient == 1 && gameCore.server.connected){
+			else if(gameCore.serverOrClient == 1 && gameCore.server.getConnected()){
 				displayGame();
 			}
-			else if(gameCore.serverOrClient == 2 && gameCore.client.connected){
+			else if(gameCore.serverOrClient == 2 && gameCore.client.getConnected()){
 				displayGame();
 			}
 		}

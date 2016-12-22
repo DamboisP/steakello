@@ -25,11 +25,12 @@ public class Server extends Thread {
 	private static int port = 0;
 	private boolean stopServer;
 	private GameController controller;
-	public InetAddress localAddress;
-	public boolean isPortSet;
+	private InetAddress localAddress;
+	private boolean isPortSet;
 	private GameCore gameCore;
-	public boolean connected;
+	private boolean connected;
 	PrintWriter out = null;
+	
 	public Server(GameCore gc) {
 		controller = new GameController(gc);
 		try {
@@ -39,14 +40,38 @@ public class Server extends Thread {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public InetAddress getLocalAddress(){
+		return localAddress;
+	}
+	
+	public void setLocalAddress(InetAddress localAddress){
+		this.localAddress = localAddress;
+	}
+	
+	public boolean getIsPortSet() {
+		return isPortSet;
+	}
+	
+	public void setIsPortSet(boolean isPortSet){
+		this.isPortSet = isPortSet;
+	}
+	
+	public boolean getConnected() {
+		return connected;
+	}
+	
+	public void setConnected(boolean connected) {
+		this.connected = connected;
+	}
+	
 	public int getPort() {
 		return port;
 	}
 
-	/*public void setPort(int port) {
+	public void setPort(int port) {
 		this.port = port;
-	}*/
+	}
 
 	public void stopServer(){
 		this.stopServer=true;

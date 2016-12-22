@@ -20,12 +20,12 @@ import java.util.Scanner;
 import model.GameCore;
 
 public class Client extends Thread{
-	public Socket socket;
-	public int port = 0;
+	private Socket socket;
+	private int port = 0;
 	private InetAddress ipAddress = null;
 	private boolean stopClient;
-	public boolean ready;
-	public boolean connected;
+	private boolean ready;
+	private boolean connected;
 	private GameController controller;
 	PrintWriter out;
 	
@@ -44,6 +44,38 @@ public class Client extends Thread{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+	}
+	
+	public int getPort() {
+		return port; 
+	}
+	
+	public void setPort(int port) {
+		this.port = port; 
+	}
+	
+	public Socket getSocket() {
+		return socket; 
+	}
+	
+	public void setSocket(Socket socket){
+		this.socket = socket;
+	}
+	
+	public boolean getReady() {
+		return ready;
+	}
+	
+	public void setReady(boolean ready) {
+		this.ready = ready;
+	}
+	
+	public boolean getConnected() {
+		return connected;
+	}
+	
+	public void setConnected(boolean connected) {
+		this.connected = connected;
 	}
 	
 	public void run(){
@@ -99,5 +131,6 @@ public class Client extends Thread{
 	public void stopClient(){
 		this.stopClient=true;
 	}
+
 
 }

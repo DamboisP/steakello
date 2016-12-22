@@ -86,7 +86,7 @@ public class ServerOrClientDialog extends JDialog implements ActionListener{
 	}
 
 	protected void displayServerDialog() {
-		while(!controller.getGameCore().server.isPortSet){
+		while(!controller.getGameCore().server.getIsPortSet()){
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -94,7 +94,7 @@ public class ServerOrClientDialog extends JDialog implements ActionListener{
 				e.printStackTrace();
 			}
 		}
-		ip = new JLabel("Adresse IP : " + controller.getGameCore().server.localAddress);
+		ip = new JLabel("Adresse IP : " + controller.getGameCore().server.getLocalAddress());
 		port = new JLabel("Port : " + controller.getGameCore().server.getPort());
 		panel.add(ip);
 		panel.add(port);
