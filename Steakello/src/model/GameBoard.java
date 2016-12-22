@@ -11,7 +11,7 @@ public class GameBoard {
 	private int size = 8;
 	private Chip[][] chipArray;
 	private int player;
-	public int winner;
+	private int winner;
 	private int x;
 	private int y;
 	private ChipPlacer chipPlacer = new ChipPlacer();
@@ -223,5 +223,13 @@ public class GameBoard {
 	 */
 	public int getX() {
 		return x;
+	}
+	
+	public int getWinner(){
+		return winner;
+	}
+	
+	public void setWinner(int winner){
+		this.winner = winner; 
 	}
 }

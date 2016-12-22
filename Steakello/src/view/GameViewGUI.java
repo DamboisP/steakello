@@ -37,19 +37,19 @@ public class GameViewGUI extends GameView {
 		if(gameCore.getGameMode() == 0){
 			menu.repaint();
 		}
-		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 0){
+		else if(gameCore.getGameMode() == 2 && gameCore.getServerOrClient() == 0){
 			if(srvOrClientDialog == null){
 				srvOrClientDialog = new ServerOrClientDialog(controller);
 			}
 		}
-		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 2 && gameCore.client.getConnected()){
+		else if(gameCore.getGameMode() == 2 && gameCore.getServerOrClient() == 2 && gameCore.getClient().getConnected()){
 			menu.setVisible(false);
 			srvOrClientDialog.close();
 			window.add(gameBoardView);
 			gameBoardView.setGameBoard(gameCore.getGameBoard());
 			gameBoardView.repaint();
 		}
-		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 1 && gameCore.server.getConnected()){
+		else if(gameCore.getGameMode() == 2 && gameCore.getServerOrClient() == 1 && gameCore.getServer().getConnected()){
 			menu.setVisible(false);
 			srvOrClientDialog.close();
 			window.add(gameBoardView);

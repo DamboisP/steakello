@@ -56,7 +56,7 @@ public class ServerOrClientDialog extends JDialog implements ActionListener{
 		ActionListener confirmLst = new ActionListener(){
 		    public void actionPerformed(ActionEvent e)
 		    {
-		    	if(controller.getGameCore().serverOrClient == 0){
+		    	if(controller.getGameCore().getServerOrClient() == 0){
 			    	if(server.isSelected()){
 			    		controller.setInput("1");
 			    		displayServerDialog();
@@ -71,7 +71,7 @@ public class ServerOrClientDialog extends JDialog implements ActionListener{
 			    		client.setEnabled(false);
 			    	}
 		    	}
-		    	else if(controller.getGameCore().serverOrClient == 2){
+		    	else if(controller.getGameCore().getServerOrClient() == 2){
 		    		controller.setInput(ip_server.getText());
 		    		controller.setInput(port_server.getText());
 		    	}
@@ -86,7 +86,7 @@ public class ServerOrClientDialog extends JDialog implements ActionListener{
 	}
 
 	protected void displayServerDialog() {
-		while(!controller.getGameCore().server.getIsPortSet()){
+		while(!controller.getGameCore().getServer().getIsPortSet()){
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -94,8 +94,8 @@ public class ServerOrClientDialog extends JDialog implements ActionListener{
 				e.printStackTrace();
 			}
 		}
-		ip = new JLabel("Adresse IP : " + controller.getGameCore().server.getLocalAddress());
-		port = new JLabel("Port : " + controller.getGameCore().server.getPort());
+		ip = new JLabel("Adresse IP : " + controller.getGameCore().getServer().getLocalAddress());
+		port = new JLabel("Port : " + controller.getGameCore().getServer().getPort());
 		panel.add(ip);
 		panel.add(port);
 		panel.revalidate();

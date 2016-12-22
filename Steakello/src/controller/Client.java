@@ -94,7 +94,7 @@ public class Client extends Thread{
 			String input;
 			connected = true;
 			controller.getGameCore().refreshView();
-			controller.getGameCore().gameStarted = true;
+			controller.getGameCore().setGameStarted(true);
 			while(!stopClient){
 				input = in.readLine();
 				if(input != null){

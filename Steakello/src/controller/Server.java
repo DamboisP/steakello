@@ -98,7 +98,7 @@ public class Server extends Thread {
 		};
 		connected = true;
 		controller.getGameCore().refreshView();
-		controller.getGameCore().gameStarted = true;
+		controller.getGameCore().setGameStarted(true);
 		while(!stopServer){
 
 				String input = null;

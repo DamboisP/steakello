@@ -67,8 +67,8 @@ public class GameBoardView extends JPanel implements MouseListener{
 		g.drawImage(background, 0, 0, windowWidth, windowHeight, null);
 		
 		g.setFont(font);
-		if(gameBoard.winner != 0){
-			g.drawString("Player " + gameBoard.winner + " wins !", gameBoardX, 60);
+		if(gameBoard.getWinner() != 0){
+			g.drawString("Player " + gameBoard.getWinner() + " wins !", gameBoardX, 60);
 		}
 		else{
 			if(gameBoard.getPlayer() == 1){
@@ -108,7 +108,7 @@ public class GameBoardView extends JPanel implements MouseListener{
 			controller.setInput(Integer.toString(coords[0]+1));
 			controller.setInput(Integer.toString(coords[1]+1));
 		}
-		else if(controller.getGameCore().getGameBoard().getPlayer() == controller.getGameCore().serverOrClient){
+		else if(controller.getGameCore().getGameBoard().getPlayer() == controller.getGameCore().getServerOrClient()){
 			controller.setInput(Integer.toString(coords[0]+1));
 			controller.setInput(Integer.toString(coords[1]+1));
 		}

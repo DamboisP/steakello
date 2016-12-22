@@ -29,33 +29,33 @@ public class GameViewConsole extends GameView{
 			displayMenu();
 		}
 		
-		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 0){
+		else if(gameCore.getGameMode() == 2 && gameCore.getServerOrClient() == 0){
 			System.out.println("Voulez-vous être serveur (1) ou client (2) ?");
 		}
 		
 		else if(gameCore.getGameMode() == 2){
-			if(gameCore.serverOrClient == 1 && !gameCore.server.getConnected()){
-				while(!gameCore.server.getIsPortSet()){
+			if(gameCore.getServerOrClient() == 1 && !gameCore.getServer().getConnected()){
+				while(!gameCore.getServer().getIsPortSet()){
 					System.out.print(".");
 				}
 				System.out.println("");
 				System.out.println("Vous serez le joueur 1 (Steaks Crus)");
-				System.out.println("L'adresse locale est: "+ gameCore.server.getLocalAddress());
-				System.out.println("Le port est: "+ gameCore.server.getPort());
+				System.out.println("L'adresse locale est: "+ gameCore.getServer().getLocalAddress());
+				System.out.println("Le port est: "+ gameCore.getServer().getPort());
 				System.out.println("En attente de connexion...");
 			}
-			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() == null){
+			else if(gameCore.getServerOrClient() == 2 && gameCore.getClient().getIpAddress() == null){
 				System.out.println("Vous serez le joueur 2 (Steaks Cuits)");
 				System.out.println("Veuillez entrer l'IP du serveur pour vous connecter: ");
 			}
 			
-			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() != null && gameCore.client.getPort() == 0){
+			else if(gameCore.getServerOrClient() == 2 && gameCore.getClient().getIpAddress() != null && gameCore.getClient().getPort() == 0){
 				System.out.println("Veuillez entrer le port du serveur: ");
 			}
-			else if(gameCore.serverOrClient == 1 && gameCore.server.getConnected()){
+			else if(gameCore.getServerOrClient() == 1 && gameCore.getServer().getConnected()){
 				displayGame();
 			}
-			else if(gameCore.serverOrClient == 2 && gameCore.client.getConnected()){
+			else if(gameCore.getServerOrClient() == 2 && gameCore.getClient().getConnected()){
 				displayGame();
 			}
 		}
@@ -75,7 +75,7 @@ public class GameViewConsole extends GameView{
 
 	@Override
 	public void displayGame() {
-		if(gameCore.getGameBoard().winner == 0){
+		if(gameCore.getGameBoard().getWinner() == 0){
 			Chip[][] chipArray = gameCore.getGameBoard().getChipArray();
 			if(gameCore.getGameBoard().getX() == -1){
 				System.out.println("---------------------------------");
@@ -95,7 +95,7 @@ public class GameViewConsole extends GameView{
 			}
 		}
 		else{
-			System.out.println("Player " + gameCore.getGameBoard().winner + " wins !");
+			System.out.println("Player " + gameCore.getGameBoard().getWinner() + " wins !");
 		}
 	}
 

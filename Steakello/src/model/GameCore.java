@@ -20,11 +20,11 @@ public class GameCore extends Observable {
 	private int gameMode = 0;
 
 	
-	public Server server;
-	public Client client;
-	public boolean askingForAddress;
-	public boolean gameStarted;
-	public int serverOrClient = 0;
+	private Server server;
+	private Client client;
+	private boolean askingForAddress;
+	private boolean gameStarted;
+	private int serverOrClient = 0;
 	
 	/**
 	 * Traite les inputs de l'utitlisateur et fait l'action requise en fonction du 
@@ -90,6 +90,45 @@ public class GameCore extends Observable {
 	public void refreshView(){
 		setChanged();
 		notifyObservers();
+	}
+	public Server getServer(){
+		return server; 
+	}
+	
+	public void setServer(Server server){
+		this.server = server; 
+	}
+	
+	public Client getClient() {
+		return client; 
+	}
+	
+	public void setClient(Client client) {
+		this.client = client; 
+	}
+	
+	public boolean getAskingForAddress(){
+		return askingForAddress;
+	}
+	
+	public void setAskingForAddress(boolean askingForAddress){
+		this.askingForAddress = askingForAddress;
+	}
+	
+	public boolean getGameStarted(){
+		return gameStarted; 
+	}
+	
+	public void setGameStarted(boolean gameStarted) {
+		this.gameStarted = gameStarted;
+	}
+	
+	public int getServerOrClient(){
+		return serverOrClient;
+	}
+	
+	public void setServerOrClient(int serverOrClient){
+		this.serverOrClient = serverOrClient;
 	}
 
 	
