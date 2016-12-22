@@ -1,10 +1,7 @@
 package controller;
 
-import java.net.InetAddress;
-
 import model.GameCore;
 import view.GameView;
-import controller.Client;
 
 
 public class GameController {

@@ -1,9 +1,7 @@
 package view;
 
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Observable;
-import java.util.Scanner;
 
 import controller.Client;
 import controller.GameController;

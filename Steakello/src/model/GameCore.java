@@ -1,8 +1,5 @@
 package model;
 
-import java.net.InetAddress;
-import java.nio.ByteBuffer;
-
 /**
  * @author Pierre Dambois
  * Groupe 8

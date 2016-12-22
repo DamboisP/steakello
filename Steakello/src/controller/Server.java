@@ -17,7 +17,6 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.nio.ByteBuffer;
 
 public class Server extends Thread {
 	//Pour tester les sockets, d'abord lancer le Server puis le Client.
