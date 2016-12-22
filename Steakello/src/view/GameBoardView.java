@@ -10,10 +10,6 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
 
 import controller.GameController;
@@ -38,10 +34,6 @@ public class GameBoardView extends JPanel implements MouseListener{
 	//Position des images
 	private int gameBoardX;
 	private int gameBoardY;
-	
-	
-	private File rawMeatSound = new File("src/sounds/rawMeat.wav");
-	private File cookedMeatSound = new File("src/sounds/cookedMeat.wav");
 	
 	private Font font;
 	public GameBoardView(int windowWidth, int windowHeight, GameController controller) {
@@ -161,30 +153,10 @@ public class GameBoardView extends JPanel implements MouseListener{
 							coords[0] = i;
 							coords[1] = j;
 						}
-					
-					}
-						
+					}		
 				}
 			}
 		return coords;
 		
 	}
-	/*
-	public void playSound(File sound){
-		try {
-			Clip audio = AudioSystem.getClip();
-			audio.open(AudioSystem.getAudioInputStream(sound));
-			audio.start();
-		} catch (LineUnavailableException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnsupportedAudioFileException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	*/
 }
