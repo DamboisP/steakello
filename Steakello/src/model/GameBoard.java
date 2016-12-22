@@ -134,10 +134,7 @@ public class GameBoard {
 				player = 1;
 			}
 		}
-
-		
-
-		
+	
 	}
 	
 	public boolean checkForMoves(int player){
