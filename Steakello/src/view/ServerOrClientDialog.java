@@ -16,7 +16,7 @@ import controller.GameController;
 
 public class ServerOrClientDialog extends JDialog implements ActionListener{
 	
-	public int choice;
+	private int choice;
 	private GameController controller;
 	private JLabel ip;
 	private JLabel port;
@@ -122,5 +122,12 @@ public class ServerOrClientDialog extends JDialog implements ActionListener{
 		
 	}
 	
+	public int getChoice(){
+		return choice;
+	}
+	
+	public void setChoice(int choice) {
+		this.choice = choice; 
+	}
 
 }
