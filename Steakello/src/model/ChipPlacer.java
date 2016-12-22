@@ -27,9 +27,7 @@ public class ChipPlacer {
 	 */
 	public boolean placeChip(Chip[][] chipArray,int boardSize, int x, int y, int player){
 		if(checkPlacementValidity(chipArray, x, y, player)){
-			System.out.println("Valid");
 			if(checkForChipToFlip(chipArray, x, y, player)){
-				System.out.println("flipped");
 				chipArray[x][y].setSet(true);
 				chipArray[x][y].setPlayer(player);
 				return true;
