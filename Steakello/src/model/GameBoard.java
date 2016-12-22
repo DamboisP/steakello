@@ -137,6 +137,13 @@ public class GameBoard {
 	
 	}
 	
+	/**
+	 * Méthode checkForMoves
+	 * vérifie s'il reste des coups possibles pour chaque joueur
+	 * @param player le joueur dont le tour est en cour
+	 * @return true s'il reste des coups possibles 
+	 * sinon return false
+	 */
 	public boolean checkForMoves(int player){
 		int moves = 0;
 		for(int i = 0; i < size; i++){
