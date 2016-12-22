@@ -21,7 +21,7 @@ import model.GameCore;
 
 public class Client extends Thread{
 	private Socket socket;
-	private int port = 0;
+	private static int port = 0;
 	private InetAddress ipAddress = null;
 	private boolean stopClient;
 	private boolean ready;
