@@ -87,7 +87,7 @@ public class GameBoardView extends JPanel implements MouseListener{
 	
 		for(int i = 0; i < gameBoard.getChipArray().length;i++){
 			for(int j = 0; j < gameBoard.getChipArray().length;j++){
-				g.setColor(Color.BLACK);
+				g.setColor(Color.GRAY);
 				g.drawRect(gameBoardX + i*cellSize,gameBoardY + j*cellSize, cellSize, cellSize);
 				if(gameBoard.getChipArray()[i][j].isSet()){
 					if(gameBoard.getChipArray()[i][j].getPlayer() == 1){
