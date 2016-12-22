@@ -27,6 +27,13 @@ public class GameBoard {
 				chipArray[i][j] = new Chip();
 			}
 		}
+		
+		//addChip(0,0,2);
+		//addChip(0,1,1);
+		//addChip(0,2,2);
+		//addChip(7,0,2);
+		//addChip(7,1,1);
+		
 		addChip(3,3,1);
 		addChip(4,3,2);
 		addChip(3,4,2);

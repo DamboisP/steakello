@@ -27,7 +27,9 @@ public class ChipPlacer {
 	 */
 	public boolean placeChip(Chip[][] chipArray,int boardSize, int x, int y, int player){
 		if(checkPlacementValidity(chipArray, x, y, player)){
+			System.out.println("Valid");
 			if(checkForChipToFlip(chipArray, x, y, player)){
+				System.out.println("flipped");
 				chipArray[x][y].setSet(true);
 				chipArray[x][y].setPlayer(player);
 				return true;
@@ -109,7 +111,7 @@ public class ChipPlacer {
 				//Vers la gauche
 				else if(i == x-1 && j == y){
 					int k = 0;
-					while(chipArray[i-k][j].getPlayer() != player && (i-k) > 1 && chipArray[i-k][j].isSet()){
+					while(chipArray[i-k][j].getPlayer() != player && (i-k) > 0 && chipArray[i-k][j].isSet()){
 						
 						chipsToFlip[i-k][j] = 1;
 						k++;
@@ -128,7 +130,7 @@ public class ChipPlacer {
 				//Vers le haut
 				else if(i == x && j == y - 1){
 					int k = 0;
-					while(chipArray[i][j-k].getPlayer() != player && (j-k) > 1 && chipArray[i][j-k].isSet()){
+					while(chipArray[i][j-k].getPlayer() != player && (j-k) > 0 && chipArray[i][j-k].isSet()){
 						
 						chipsToFlip[i][j-k] = 1;
 						k++;
@@ -184,7 +186,7 @@ public class ChipPlacer {
 				//Vers bas gauche
 				if(i == x-1 && j == y+1){
 					int k = 0;
-					while(chipArray[i-k][j+k].getPlayer() != player && chipArray[i-k][j+k].isSet() &&(i-k) > 1 && (j+k) < chipArray.length - 1){
+					while(chipArray[i-k][j+k].getPlayer() != player && chipArray[i-k][j+k].isSet() &&(i-k) > 0 && (j+k) < chipArray.length - 1){
 						chipsToFlip[i-k][j+k] = 1;
 						k++;
 					}
@@ -202,7 +204,7 @@ public class ChipPlacer {
 				//Vers haut droite
 				if(i == x+1 && j == y-1){
 					int k = 0;
-					while(chipArray[i+k][j-k].getPlayer() != player && chipArray[i+k][j-k].isSet() && (i+k) < chipArray.length - 1 && (j-k) > 1){
+					while(chipArray[i+k][j-k].getPlayer() != player && chipArray[i+k][j-k].isSet() && (i+k) < chipArray.length - 1 && (j-k) > 0){
 						chipsToFlip[i+k][j-k] = 1;
 						k++;
 					}
@@ -220,7 +222,7 @@ public class ChipPlacer {
 				//Vers haut gauche
 				if(i == x-1 && j == y-1){
 					int k = 0;
-					while(chipArray[i-k][j-k].getPlayer() != player && chipArray[i-k][j-k].isSet() && (i-k) > 1 && (j-k) > 1){
+					while(chipArray[i-k][j-k].getPlayer() != player && chipArray[i-k][j-k].isSet() && (i-k) > 0 && (j-k) > 0){
 						chipsToFlip[i-k][j-k] = 1;
 						k++;
 					}
