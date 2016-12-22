@@ -39,13 +39,13 @@ public class GameViewConsole extends GameView{
 					System.out.print(".");
 				}
 				System.out.println("");
-				System.out.println("Vous serez le joueur 1");
+				System.out.println("Vous serez le joueur 1 (Steaks Crus)");
 				System.out.println("L'adresse locale est: "+ gameCore.server.localAddress);
 				System.out.println("Le port est: "+ gameCore.server.getPort());
 				System.out.println("En attente de connexion...");
 			}
 			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() == null){
-				System.out.println("Vous serez le joueur 2");
+				System.out.println("Vous serez le joueur 2 (Steaks Cuits)");
 				System.out.println("Veuillez entrer l'IP du serveur pour vous connecter: ");
 			}
 			

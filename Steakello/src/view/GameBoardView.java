@@ -71,7 +71,12 @@ public class GameBoardView extends JPanel implements MouseListener{
 			g.drawString("Player " + gameBoard.winner + " wins !", gameBoardX, 60);
 		}
 		else{
-			g.drawString("C'est au tour du joueur "+gameBoard.getPlayer(), gameBoardX, 60);
+			if(gameBoard.getPlayer() == 1){
+				g.drawString("C'est au tour du joueur "+gameBoard.getPlayer()+ " (Steaks Crus)", gameBoardX, 60);
+			} else {
+				g.drawString("C'est au tour du joueur "+gameBoard.getPlayer()+ " (Steaks Cuits)", gameBoardX, 60);
+			}
+			
 		}
 		g.drawString("Joueur 1: "+gameBoard.score()[0], gameBoardX + (gameBoard.getSize() * cellSize) + 30, windowHeight/2);
 		g.drawString("Joueur 2: "+gameBoard.score()[1], gameBoardX + (gameBoard.getSize() * cellSize) + 30, windowHeight/2 + 60);
