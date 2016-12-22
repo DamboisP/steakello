@@ -75,24 +75,28 @@ public class GameViewConsole extends GameView{
 
 	@Override
 	public void displayGame() {
-		Chip[][] chipArray = gameCore.getGameBoard().getChipArray();
-		if(gameCore.getGameBoard().getX() == -1){
-			System.out.println("---------------------------------");
-			System.out.print("[ ][1][2][3][4][5][6][7][8]");
-			for(int i = 0; i < chipArray.length; i++){
-				System.out.print("\n["+(i+1)+"]");
-				for(int j = 0; j <chipArray.length; j++){
-					System.out.print(chipArray[j][i]);
+		if(gameCore.getGameBoard().winner == 0){
+			Chip[][] chipArray = gameCore.getGameBoard().getChipArray();
+			if(gameCore.getGameBoard().getX() == -1){
+				System.out.println("---------------------------------");
+				System.out.print("[ ][1][2][3][4][5][6][7][8]");
+				for(int i = 0; i < chipArray.length; i++){
+					System.out.print("\n["+(i+1)+"]");
+					for(int j = 0; j <chipArray.length; j++){
+						System.out.print(chipArray[j][i]);
+					}
 				}
+				System.out.println("\n---------------------------------");
+				System.out.println("C'est au tour du joueur "+ gameCore.getGameBoard().getPlayer());
+				System.out.println("X: ");
 			}
-			System.out.println("\n---------------------------------");
-			System.out.println("C'est au tour du joueur "+ gameCore.getGameBoard().getPlayer());
-			System.out.println("X: ");
+			else{
+				System.out.println("Y: ");
+			}
 		}
 		else{
-			System.out.println("Y: ");
+			System.out.println("Player " + gameCore.getGameBoard().winner + " wins !");
 		}
-		
 	}
 
 	public void setLocalPort(int port) {

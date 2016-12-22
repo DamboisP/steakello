@@ -81,12 +81,7 @@ public class GameController {
 		this.gameView = view;
 	}
 
-	public void setInput(int inputInt) {
-		if(inputInt >= 1 && inputInt <= getGameCore().getGameBoard().getSize()){
-			getGameCore().userInput(inputInt);
-		}
-		
-	}
+
 
 	public GameCore getGameCore() {
 		return gameCore;

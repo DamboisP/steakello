@@ -11,6 +11,7 @@ public class GameBoard {
 	private int size = 8;
 	private Chip[][] chipArray;
 	private int player;
+	public int winner;
 	private int x;
 	private int y;
 	private ChipPlacer chipPlacer = new ChipPlacer();
@@ -95,16 +96,13 @@ public class GameBoard {
 	public void setCoords(int input) {
 		if(isFull() || (!checkForMoves(1) && !checkForMoves(2) )){
 			if(score()[0] > score()[1]){
-				System.out.println("Player 1 wins");
+				this.winner = 1;
 			}else{
-				System.out.println("Player 2 wins");
+				this.winner = 2;
 			}
-<<<<<<< HEAD
+
 		} 
-=======
-		}
 		
->>>>>>> origin/Sockets-fonctionnels-GUI
 		else if(x == -1){
 			x = input;
 		}

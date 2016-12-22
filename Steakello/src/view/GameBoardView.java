@@ -10,6 +10,10 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
 
 import controller.GameController;
@@ -34,6 +38,11 @@ public class GameBoardView extends JPanel implements MouseListener{
 	//Position des images
 	private int gameBoardX;
 	private int gameBoardY;
+	
+	
+	private File rawMeatSound = new File("src/sounds/rawMeat.wav");
+	private File cookedMeatSound = new File("src/sounds/cookedMeat.wav");
+	
 	private Font font;
 	public GameBoardView(int windowWidth, int windowHeight, GameController controller) {
 		this.windowWidth = windowWidth;
@@ -58,10 +67,16 @@ public class GameBoardView extends JPanel implements MouseListener{
 		g.drawImage(background, 0, 0, windowWidth, windowHeight, null);
 		
 		g.setFont(font);
+		if(gameBoard.winner != 0){
+			g.drawString("Player " + gameBoard.winner + " wins !", gameBoardX, 60);
+		}
+		else{
+			g.drawString("C'est au tour du joueur "+gameBoard.getPlayer(), gameBoardX, 60);
+		}
+		g.drawString("Joueur 1: "+gameBoard.score()[0], gameBoardX + (gameBoard.getSize() * cellSize) + 30, windowHeight/2);
+		g.drawString("Joueur 2: "+gameBoard.score()[1], gameBoardX + (gameBoard.getSize() * cellSize) + 30, windowHeight/2 + 60);
 
-		g.drawString("J1: "+gameBoard.score()[0], 0, 30);
-		g.drawString("J2: "+gameBoard.score()[1], 200, 30);
-		g.drawString("C'est au tour du joueur "+gameBoard.getPlayer(), 0, 60);
+		
 		g.setColor(Color.WHITE);
 		g.drawImage(border, gameBoardX, gameBoardY, gameBoardX + gameBoard.getSize()*cellSize, gameBoardY + gameBoard.getSize()*cellSize, 0, 0, border.getWidth(this), border.getWidth(this), this);
 	
@@ -72,7 +87,7 @@ public class GameBoardView extends JPanel implements MouseListener{
 				if(gameBoard.getChipArray()[i][j].isSet()){
 					if(gameBoard.getChipArray()[i][j].getPlayer() == 1){
 						g.drawImage(rawSteak, (gameBoardX + i*cellSize), (gameBoardY + j*cellSize), (gameBoardX + i*cellSize)+cellSize,(gameBoardY + j*cellSize)+cellSize, 0, 0, rawSteak.getWidth(this), rawSteak.getWidth(this), this);
-					 }
+					}
 					 else if(gameBoard.getChipArray()[i][j].getPlayer() == 2){
 						 g.drawImage(cookedSteak, (gameBoardX + i*cellSize), (gameBoardY + j*cellSize), (gameBoardX + i*cellSize)+cellSize,(gameBoardY + j*cellSize)+cellSize, 0, 0, rawSteak.getWidth(this), rawSteak.getWidth(this), this);  
 					 }
@@ -83,11 +98,16 @@ public class GameBoardView extends JPanel implements MouseListener{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		int[] coords = getCoordsFromClick(e.getX(), e.getY());
-		controller.setInput(coords[0]+1);
-		controller.setInput(coords[1]+1);
-		
+		if(controller.getGameCore().getGameMode() == 1){
+			controller.setInput(Integer.toString(coords[0]+1));
+			controller.setInput(Integer.toString(coords[1]+1));
+		}
+		else if(controller.getGameCore().getGameBoard().getPlayer() == controller.getGameCore().serverOrClient){
+			controller.setInput(Integer.toString(coords[0]+1));
+			controller.setInput(Integer.toString(coords[1]+1));
+		}
+
 	}
 
 	@Override
@@ -144,4 +164,22 @@ public class GameBoardView extends JPanel implements MouseListener{
 		return coords;
 		
 	}
+	/*
+	public void playSound(File sound){
+		try {
+			Clip audio = AudioSystem.getClip();
+			audio.open(AudioSystem.getAudioInputStream(sound));
+			audio.start();
+		} catch (LineUnavailableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedAudioFileException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	*/
 }
