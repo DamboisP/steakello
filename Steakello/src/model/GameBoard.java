@@ -8,7 +8,7 @@ package model;
  */
 
 public class GameBoard {
-	private int size = 8;
+	private static final int size = 8;
 	private Chip[][] chipArray;
 	private int player;
 	private int winner;
@@ -207,14 +207,6 @@ public class GameBoard {
 	 */
 	public int getSize() {
 		return size;
-	}
-	
-	/**
-	 * Méthode setSize
-	 * attribue une taille à la variable size
-	 */
-	public void setSize(int size) {
-		this.size = size;
 	}
 	
 	/** 

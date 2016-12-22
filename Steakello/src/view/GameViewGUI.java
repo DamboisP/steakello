@@ -8,8 +8,8 @@ import controller.GameController;
 import model.GameCore;
 
 public class GameViewGUI extends GameView {
-	private int windowWidth = 800;
-	private int windowHeight = 600;
+	private static final int windowWidth = 800;
+	private static final int windowHeight = 600;
 
 	private JFrame window;
 	private Menu menu;
