@@ -1,8 +1,5 @@
 package model;
 
-import java.net.InetAddress;
-import java.nio.ByteBuffer;
-
 /**
  * @author Pierre Dambois
  * Groupe 8
@@ -20,11 +17,11 @@ public class GameCore extends Observable {
 	private int gameMode = 0;
 
 	
-	public Server server;
-	public Client client;
-	public boolean askingForAddress;
-	public boolean gameStarted;
-	public int serverOrClient = 0;
+	private Server server;
+	private Client client;
+	private boolean askingForAddress;
+	private boolean gameStarted;
+	private int serverOrClient = 0;
 	
 	/**
 	 * Traite les inputs de l'utitlisateur et fait l'action requise en fonction du 
@@ -52,9 +49,9 @@ public class GameCore extends Observable {
 			}
 		}
 		
-		else if(gameMode == 2 && serverOrClient == 2 && client.getIpAddress() != null && client.port == 0){
-			client.port = input;
-			client.ready = true;
+		else if(gameMode == 2 && serverOrClient == 2 && client.getIpAddress() != null && client.getPort() == 0){
+			client.setPort(input);
+			client.setReady(true);
 		}
 		else if(gameMode >= 1){
 			gameBoard.setCoords(input-1);
@@ -90,6 +87,45 @@ public class GameCore extends Observable {
 	public void refreshView(){
 		setChanged();
 		notifyObservers();
+	}
+	public Server getServer(){
+		return server; 
+	}
+	
+	public void setServer(Server server){
+		this.server = server; 
+	}
+	
+	public Client getClient() {
+		return client; 
+	}
+	
+	public void setClient(Client client) {
+		this.client = client; 
+	}
+	
+	public boolean getAskingForAddress(){
+		return askingForAddress;
+	}
+	
+	public void setAskingForAddress(boolean askingForAddress){
+		this.askingForAddress = askingForAddress;
+	}
+	
+	public boolean getGameStarted(){
+		return gameStarted; 
+	}
+	
+	public void setGameStarted(boolean gameStarted) {
+		this.gameStarted = gameStarted;
+	}
+	
+	public int getServerOrClient(){
+		return serverOrClient;
+	}
+	
+	public void setServerOrClient(int serverOrClient){
+		this.serverOrClient = serverOrClient;
 	}
 
 	

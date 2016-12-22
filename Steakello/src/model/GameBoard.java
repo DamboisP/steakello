@@ -8,9 +8,10 @@ package model;
  */
 
 public class GameBoard {
-	private int size = 8;
+	private static final int size = 8;
 	private Chip[][] chipArray;
 	private int player;
+	private int winner;
 	private int x;
 	private int y;
 	private ChipPlacer chipPlacer = new ChipPlacer();
@@ -26,10 +27,11 @@ public class GameBoard {
 				chipArray[i][j] = new Chip();
 			}
 		}
+
 		addChip(3,3,1);
 		addChip(4,3,2);
 		addChip(3,4,2);
-		addChip(4,4,1);
+		addChip(4,4,1); 
 		player = 1;
 		x = -1;
 		y = -1;
@@ -95,16 +97,13 @@ public class GameBoard {
 	public void setCoords(int input) {
 		if(isFull() || (!checkForMoves(1) && !checkForMoves(2) )){
 			if(score()[0] > score()[1]){
-				System.out.println("Player 1 wins");
+				this.winner = 1;
 			}else{
-				System.out.println("Player 2 wins");
+				this.winner = 2;
 			}
-<<<<<<< HEAD
+
 		} 
-=======
-		}
 		
->>>>>>> origin/Sockets-fonctionnels-GUI
 		else if(x == -1){
 			x = input;
 		}
@@ -136,17 +135,21 @@ public class GameBoard {
 				player = 1;
 			}
 		}
-
-		
-
-		
+	
 	}
 	
+	/**
+	 * Méthode checkForMoves
+	 * vérifie s'il reste des coups possibles pour chaque joueur
+	 * @param player le joueur dont le tour est en cour
+	 * @return true s'il reste des coups possibles 
+	 * sinon return false
+	 */
 	public boolean checkForMoves(int player){
 		int moves = 0;
 		for(int i = 0; i < size; i++){
 			for(int j = 0; j < size; j++){
-				 if(chipPlacer.checkPlacementValidity(chipArray, i, j, player)){
+				 if(chipPlacer.checkPlacementValidity(chipArray, i, j, player) && chipPlacer.checkIfFlips(chipArray, i, j, player)){
 					 moves++;
 				 }
 			}
@@ -211,19 +214,19 @@ public class GameBoard {
 		return size;
 	}
 	
-	/**
-	 * Méthode setSize
-	 * attribue une taille à la variable size
-	 */
-	public void setSize(int size) {
-		this.size = size;
-	}
-	
 	/** 
 	 * Méthode getX
 	 * @return la valeur de x
 	 */
 	public int getX() {
 		return x;
+	}
+	
+	public int getWinner(){
+		return winner;
+	}
+	
+	public void setWinner(int winner){
+		this.winner = winner; 
 	}
 }

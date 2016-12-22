@@ -1,9 +1,7 @@
 package view;
 
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Observable;
-import java.util.Scanner;
 
 import controller.Client;
 import controller.GameController;
@@ -29,33 +27,33 @@ public class GameViewConsole extends GameView{
 			displayMenu();
 		}
 		
-		else if(gameCore.getGameMode() == 2 && gameCore.serverOrClient == 0){
+		else if(gameCore.getGameMode() == 2 && gameCore.getServerOrClient() == 0){
 			System.out.println("Voulez-vous être serveur (1) ou client (2) ?");
 		}
 		
 		else if(gameCore.getGameMode() == 2){
-			if(gameCore.serverOrClient == 1 && !gameCore.server.connected){
-				while(!gameCore.server.isPortSet){
+			if(gameCore.getServerOrClient() == 1 && !gameCore.getServer().getConnected()){
+				while(!gameCore.getServer().getIsPortSet()){
 					System.out.print(".");
 				}
 				System.out.println("");
-				System.out.println("Vous serez le joueur 1");
-				System.out.println("L'adresse locale est: "+ gameCore.server.localAddress);
-				System.out.println("Le port est: "+ gameCore.server.getPort());
+				System.out.println("Vous serez le joueur 1 (Steaks Crus)");
+				System.out.println("L'adresse locale est: "+ gameCore.getServer().getLocalAddress());
+				System.out.println("Le port est: "+ gameCore.getServer().getPort());
 				System.out.println("En attente de connexion...");
 			}
-			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() == null){
-				System.out.println("Vous serez le joueur 2");
+			else if(gameCore.getServerOrClient() == 2 && gameCore.getClient().getIpAddress() == null){
+				System.out.println("Vous serez le joueur 2 (Steaks Cuits)");
 				System.out.println("Veuillez entrer l'IP du serveur pour vous connecter: ");
 			}
 			
-			else if(gameCore.serverOrClient == 2 && gameCore.client.getIpAddress() != null && gameCore.client.port == 0){
+			else if(gameCore.getServerOrClient() == 2 && gameCore.getClient().getIpAddress() != null && gameCore.getClient().getPort() == 0){
 				System.out.println("Veuillez entrer le port du serveur: ");
 			}
-			else if(gameCore.serverOrClient == 1 && gameCore.server.connected){
+			else if(gameCore.getServerOrClient() == 1 && gameCore.getServer().getConnected()){
 				displayGame();
 			}
-			else if(gameCore.serverOrClient == 2 && gameCore.client.connected){
+			else if(gameCore.getServerOrClient() == 2 && gameCore.getClient().getConnected()){
 				displayGame();
 			}
 		}
@@ -75,24 +73,28 @@ public class GameViewConsole extends GameView{
 
 	@Override
 	public void displayGame() {
-		Chip[][] chipArray = gameCore.getGameBoard().getChipArray();
-		if(gameCore.getGameBoard().getX() == -1){
-			System.out.println("---------------------------------");
-			System.out.print("[ ][1][2][3][4][5][6][7][8]");
-			for(int i = 0; i < chipArray.length; i++){
-				System.out.print("\n["+(i+1)+"]");
-				for(int j = 0; j <chipArray.length; j++){
-					System.out.print(chipArray[j][i]);
+		if(gameCore.getGameBoard().getWinner() == 0){
+			Chip[][] chipArray = gameCore.getGameBoard().getChipArray();
+			if(gameCore.getGameBoard().getX() == -1){
+				System.out.println("---------------------------------");
+				System.out.print("[ ][1][2][3][4][5][6][7][8]");
+				for(int i = 0; i < chipArray.length; i++){
+					System.out.print("\n["+(i+1)+"]");
+					for(int j = 0; j <chipArray.length; j++){
+						System.out.print(chipArray[j][i]);
+					}
 				}
+				System.out.println("\n---------------------------------");
+				System.out.println("C'est au tour du joueur "+ gameCore.getGameBoard().getPlayer());
+				System.out.println("X: ");
 			}
-			System.out.println("\n---------------------------------");
-			System.out.println("C'est au tour du joueur "+ gameCore.getGameBoard().getPlayer());
-			System.out.println("X: ");
+			else{
+				System.out.println("Y: ");
+			}
 		}
 		else{
-			System.out.println("Y: ");
+			System.out.println("Player " + gameCore.getGameBoard().getWinner() + " wins !");
 		}
-		
 	}
 
 	public void setLocalPort(int port) {

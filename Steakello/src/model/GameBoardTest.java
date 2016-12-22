@@ -60,4 +60,28 @@ public class GameBoardTest {
 		GBTest.addChip(5,2,2);
 		assertArrayEquals(expectedResult, GBTest.score());
 	}
+	@Test
+	public void testcheckForMoves() {
+		GameBoard GBTest = new GameBoard();
+		//test 1: vérifie si player1 a un coup possible
+		assertTrue(GBTest.checkForMoves(1));
+		//test 2: vérifie si player2 a un coup possible
+		GBTest.addChip(4,2,1);
+		GBTest.addChip(4,3,1);
+		assertTrue(GBTest.checkForMoves(2));
+		//test 3: vérifie si player1 n'a plus de coup possible
+		for(int i = 0; i < 8 ; i++) {
+			for(int j = 0; j < 8; j++) {
+				GBTest.addChip(i, j, 2);
+			}
+		}
+		assertFalse(GBTest.checkForMoves(1));
+		//test 4: vérifie si player2 n'a plus de coup possible
+		for(int i = 0; i < 8 ; i++) {
+			for(int j = 0; j < 8; j++) {
+				GBTest.addChip(i, j, 1);
+			}
+		}
+		assertFalse(GBTest.checkForMoves(2));
+	}
 }

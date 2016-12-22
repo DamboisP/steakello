@@ -19,8 +19,8 @@ public class InputThread extends Thread {
 					controller.setInput(scanner.nextLine());
 				}
 				else if(controller.getGameCore().getGameMode() == 2){
-					if(controller.getGameCore().gameStarted){
-						if(controller.getGameCore().serverOrClient == controller.getGameCore().getGameBoard().getPlayer()){
+					if(controller.getGameCore().getGameStarted()){
+						if(controller.getGameCore().getServerOrClient() == controller.getGameCore().getGameBoard().getPlayer()){
 							controller.setInput(scanner.nextLine());
 						}
 					}

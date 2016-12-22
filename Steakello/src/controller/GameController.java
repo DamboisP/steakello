@@ -1,28 +1,25 @@
 package controller;
 
-import java.net.InetAddress;
-
 import model.GameCore;
 import view.GameView;
-import controller.Client;
+
 
 public class GameController {
 
 	private GameCore gameCore;
 	private GameView gameView;
-	public Client client;
 	
 	public GameController(GameCore gameCore) {
 		this.setGameCore(gameCore);
 	}
-
+	
 	public void setInput(String input) {
 		int inputInt;
 		/*
 		 * Si on est en train de demander l'adresse IP du serveur
 		 * l'entrée n'est exceptionnellement pas convertie en entier
 		*/
-		if(getGameCore().askingForAddress){
+		if(getGameCore().getAskingForAddress()){
 			getGameCore().userInput(input);
 		}
 
@@ -37,31 +34,31 @@ public class GameController {
 							getGameCore().userInput(inputInt);
 						}
 					}
-					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 0){
+					else if(getGameCore().getGameMode() == 2 && getGameCore().getServerOrClient() == 0){
 						if(inputInt >= 1 && inputInt <= 2){
 							getGameCore().userInput(inputInt);
 						}
 					}
-					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 2 && getGameCore().client.getIpAddress() != null && getGameCore().client.port == 0){
+					else if(getGameCore().getGameMode() == 2 && getGameCore().getServerOrClient() == 2 && getGameCore().getClient().getIpAddress() != null && getGameCore().getClient().getPort() == 0){
 						if(inputInt >= 1 && inputInt <= 66000){
 							getGameCore().userInput(inputInt);
 						}
 					}
-					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 1 && getGameCore().server.connected){
+					else if(getGameCore().getGameMode() == 2 && getGameCore().getServerOrClient() == 1 && getGameCore().getServer().getConnected()){
 						if(getGameCore().getGameBoard().getPlayer() == 1){
-							getGameCore().server.sendInput(inputInt);
+							getGameCore().getServer().sendInput(inputInt);
 							
 						}
 						getGameCore().userInput(inputInt);
 					}
-					else if(getGameCore().getGameMode() == 2 && getGameCore().serverOrClient == 2 && getGameCore().client.connected){
+					else if(getGameCore().getGameMode() == 2 && getGameCore().getServerOrClient() == 2 && getGameCore().getClient().getConnected()){
 						if(getGameCore().getGameBoard().getPlayer() == 2){
-							getGameCore().client.sendInput(inputInt);
+							getGameCore().getClient().sendInput(inputInt);
 						}
 						getGameCore().userInput(inputInt);
 						
 					}
-					else if(getGameCore().getGameMode() == 1 || (getGameCore().getGameMode() == 2 && ((getGameCore().serverOrClient == 2 && getGameCore().client.connected) || (getGameCore().serverOrClient == 1 && getGameCore().server.connected))) ){
+					else if(getGameCore().getGameMode() == 1 || (getGameCore().getGameMode() == 2 && ((getGameCore().getServerOrClient() == 2 && getGameCore().getClient().getConnected()) || (getGameCore().getServerOrClient() == 1 && getGameCore().getServer().getConnected()))) ){
 						if(inputInt >= 1 && inputInt <= getGameCore().getGameBoard().getSize()){
 							getGameCore().userInput(inputInt);
 						}
@@ -81,12 +78,7 @@ public class GameController {
 		this.gameView = view;
 	}
 
-	public void setInput(int inputInt) {
-		if(inputInt >= 1 && inputInt <= getGameCore().getGameBoard().getSize()){
-			getGameCore().userInput(inputInt);
-		}
-		
-	}
+
 
 	public GameCore getGameCore() {
 		return gameCore;
