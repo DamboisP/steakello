@@ -27,17 +27,11 @@ public class GameBoard {
 				chipArray[i][j] = new Chip();
 			}
 		}
-		
-		//addChip(0,0,2);
-		//addChip(0,1,1);
-		//addChip(0,2,2);
-		//addChip(7,0,2);
-		//addChip(7,1,1);
-		
+
 		addChip(3,3,1);
 		addChip(4,3,2);
 		addChip(3,4,2);
-		addChip(4,4,1);
+		addChip(4,4,1); 
 		player = 1;
 		x = -1;
 		y = -1;
@@ -155,7 +149,7 @@ public class GameBoard {
 		int moves = 0;
 		for(int i = 0; i < size; i++){
 			for(int j = 0; j < size; j++){
-				 if(chipPlacer.checkPlacementValidity(chipArray, i, j, player)){
+				 if(chipPlacer.checkPlacementValidity(chipArray, i, j, player) && chipPlacer.checkIfFlips(chipArray, i, j, player)){
 					 moves++;
 				 }
 			}
